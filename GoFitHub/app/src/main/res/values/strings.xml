@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GoFitHub</string>
+    <string name="tagline">Your fitness journey starts here</string>
+    <string name="button_continue_as_guest">Continue as Guest</string>
+    <string name="button_user_login">User Login</string>
+    <string name="button_trainer_login">Trainer Login</string>
+    <color name="button_color">#03A9F4</color>
+    <color name="app_name_color">#009688</color>
+
 </resources>

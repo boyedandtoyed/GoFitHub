@@ -15,13 +15,13 @@ class LandingPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing_page)
         // Set up button click listeners to open LoginActivity
-        findViewById<Button>(R.id.buttonUserLogin).setOnClickListener {
+        findViewById<Button>(R.id.buttonLogin).setOnClickListener {
             openLoginActivity()
         }
 
-        findViewById<Button>(R.id.buttonTrainerLogin).setOnClickListener {
-            openLoginActivity()
-        }
+//        findViewById<Button>(R.id.buttonTrainerLogin).setOnClickListener {
+//            openLoginActivity()
+//        }
     }
 
     private fun openLoginActivity() {

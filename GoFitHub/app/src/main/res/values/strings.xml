@@ -2,8 +2,8 @@
     <string name="app_name">GoFitHub</string>
     <string name="tagline">Your fitness journey starts here</string>
     <string name="button_continue_as_guest">Continue as Guest</string>
-    <string name="button_user_login">User Login</string>
-    <string name="button_trainer_login">Trainer Login</string>
+    <string name="button_login">Login</string>
+    <string name="button_register">Register</string>
     <color name="app_name_color">#009688</color>
     <string name="title_activity_user_login">UserLoginActivity</string>
     <string name="prompt_email">Email</string>

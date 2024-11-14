@@ -46,7 +46,7 @@
         android:backgroundTint="@color/button_color"
         android:text="@string/button_continue_as_guest"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@id/buttonUserLogin"
+        app:layout_constraintBottom_toTopOf="@id/buttonLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tagline" />
@@ -56,29 +56,29 @@
     <!-- Trainer Login Button -->
 
     <Button
-        android:id="@+id/buttonUserLogin"
+        android:id="@+id/buttonLogin"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/button_color"
-        android:text="@string/button_user_login"
+        android:text="@string/button_login"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@id/buttonTrainerLogin"
+        app:layout_constraintBottom_toTopOf="@id/buttonRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonContinueAsGuest" />
 
     <Button
-        android:id="@+id/buttonTrainerLogin"
+        android:id="@+id/buttonRegister"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_color"
-        android:text="@string/button_trainer_login"
+        android:text="@string/button_register"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonUserLogin" />
+        app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,10 @@
 package com.example.gofithub
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -33,6 +35,13 @@ class TrainerRegisterActivity : AppCompatActivity() {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             specialtySpinner.adapter = adapter
+        }
+
+        // Set up the Terms and Conditions text view
+        val termsTextView = findViewById<TextView>(R.id.termsText)
+        termsTextView.setOnClickListener {
+            val intent = Intent(this, TermsAndConditionsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

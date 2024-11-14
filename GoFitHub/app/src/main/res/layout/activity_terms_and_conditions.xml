@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- LinearLayout to hold all the TextViews -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center"
+        android:background="@color/white"
+        >
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/terms_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/terms_and_conditions_title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"/>
+
+        <!-- Introduction -->
+        <TextView
+            android:id="@+id/terms_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/terms_intro"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"/>
+
+        <!-- User Registration -->
+        <TextView
+            android:id="@+id/terms_user_registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_registration"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"/>
+
+        <!-- Account Termination -->
+        <TextView
+            android:id="@+id/terms_account_termination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/account_termination"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"/>
+
+        <!-- Use of Services -->
+        <TextView
+            android:id="@+id/terms_use_of_services"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_of_services"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- User Content -->
+        <TextView
+            android:id="@+id/terms_user_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_content"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Privacy and Data Collection -->
+        <TextView
+            android:id="@+id/terms_privacy_and_data_collection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_and_data_collection"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Prohibited Activities -->
+        <TextView
+            android:id="@+id/terms_prohibited_activities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/prohibited_activities"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"/>
+
+        <!-- Third-Party Links and Content -->
+        <TextView
+            android:id="@+id/terms_third_party_links"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/third_party_links"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Disclaimer -->
+        <TextView
+            android:id="@+id/terms_disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/disclaimers"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black"/>
+
+        <!-- Limitation of Liability -->
+        <TextView
+            android:id="@+id/terms_limitaion_of_liability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/limitation_of_liability"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Indemnification -->
+        <TextView
+            android:id="@+id/terms_indemnification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/indemnification"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Governing Law -->
+        <TextView
+            android:id="@+id/terms_governing_law"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/governing_law"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Modifications to Terms -->
+        <TextView
+            android:id="@+id/terms_modifications_to_terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modifications_to_terms"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Contact Us -->
+        <TextView
+            android:id="@+id/terms_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_us"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4sp"
+            android:textColor="@color/black"/>
+
+        <!-- Close button -->
+        <Button
+            android:id="@+id/buttonClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Close"
+            android:padding="8dp"
+            android:backgroundTint="@color/button_color" />
+    </LinearLayout>
+</ScrollView>

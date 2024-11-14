@@ -100,8 +100,11 @@
             android:id="@+id/termsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Terms and Conditions"
-            android:textColor="@color/black" />
+            android:padding="8dp"
+            android:text="@string/terms_and_conditions"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/registerButton"

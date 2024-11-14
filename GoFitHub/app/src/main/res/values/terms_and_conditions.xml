@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="terms_and_conditions">
+        By registering, you agree to our Terms and Conditions. Please read them carefully before proceeding. Click here to read it.
+    </string>
+
+        <!-- Terms and Conditions Title -->
+        <string name="terms_and_conditions_title">\nTerms and Conditions</string>
+
+        <!-- Introduction Text -->
+        <string name="terms_intro">Welcome to GoFitHub! By accessing or using our services, including our website, mobile applications, and any related content (collectively referred to as "Services"), you agree to comply with these Terms and Conditions. Please read them carefully before using our Services. If you disagree with any part of these Terms, you may not access or use our Services.</string>
+
+        <!-- Acceptance of Terms -->
+        <string name="acceptance_of_terms">1. Acceptance of Terms\nBy creating an account or using the Services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, as well as our Privacy Policy.</string>
+
+        <!-- User Registration -->
+        <string name="user_registration">2. User Registration\nTo access certain features of our Services, you must register for an account. You are responsible for maintaining the confidentiality of your account information, including your username and password. You agree to notify us immediately of any unauthorized use of your account.</string>
+
+        <!-- Account Termination -->
+        <string name="account_termination">3. Account Termination\nWe may terminate or suspend your account at our discretion if you violate any of these Terms or engage in prohibited conduct. If your account is terminated, your access to the Services will be disabled.</string>
+
+        <!-- Use of Services -->
+        <string name="use_of_services">4. Use of the Services\nYou agree to use our Services only for lawful purposes and in accordance with these Terms. You may not use the Services for any illegal activities, or activities that could harm or disrupt the Services, including but not limited to:\n- Engaging in fraudulent behavior\n- Uploading malicious content\n- Disrupting the operation of the Services</string>
+
+        <!-- User Content -->
+        <string name="user_content">5. User Content\nYou retain ownership of the content you upload or share through the Services ("User Content"). By submitting User Content, you grant us a non-exclusive, royalty-free, worldwide license to use, display, modify, and distribute your content as necessary for the operation of the Services.</string>
+
+        <!-- Privacy and Data Collection -->
+        <string name="privacy_and_data_collection">6. Privacy and Data Collection\nYour use of the Services is subject to our Privacy Policy, which explains how we collect, use, and protect your personal data. By using the Services, you consent to our data practices as described in the Privacy Policy.</string>
+
+        <!-- Prohibited Activities -->
+        <string name="prohibited_activities">7. Prohibited Activities\nYou agree not to:\n- Violate any applicable laws or regulations\n- Infringe upon the intellectual property rights of others\n- Interfere with or disrupt the Services\n- Use automated tools to access or scrape the Services\n- Engage in any behavior that could harm other users or the Services</string>
+
+        <!-- Third-Party Links and Content -->
+        <string name="third_party_links">8. Third-Party Links and Content\nOur Services may contain links to third-party websites or content that are not owned or controlled by GoFitHub. We are not responsible for the content or practices of third-party sites. You access these links at your own risk.</string>
+
+        <!-- Disclaimers -->
+        <string name="disclaimers">9. Disclaimers\nThe Services are provided "as is" and without warranties of any kind, either express or implied. We do not guarantee that the Services will be free from errors or interruptions, and we disclaim all warranties, including but not limited to implied warranties of merchantability or fitness for a particular purpose.</string>
+
+        <!-- Limitation of Liability -->
+        <string name="limitation_of_liability">10. Limitation of Liability\nIn no event shall GoFitHub be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of the Services, even if we have been advised of the possibility of such damages.</string>
+
+        <!-- Indemnification -->
+        <string name="indemnification">11. Indemnification\nYou agree to indemnify, defend, and hold harmless GoFitHub and its affiliates, officers, employees, and partners from any claims, damages, losses, liabilities, or expenses (including reasonable attorneys’ fees) arising out of your use of the Services or your violation of these Terms.</string>
+
+        <!-- Governing Law -->
+        <string name="governing_law">12. Governing Law\nThese Terms shall be governed by and construed in accordance with the laws of the state of Texas, without regard to its conflict of law principles. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts located in Texas.</string>
+
+        <!-- Modifications to Terms -->
+        <string name="modifications_to_terms">13. Modifications to Terms\nWe reserve the right to modify these Terms at any time. Any changes will be posted on our website, and the "Last Updated" date will be revised accordingly. Your continued use of the Services after changes to these Terms constitutes your acceptance of the new Terms.</string>
+
+        <!-- Contact Us -->
+        <string name="contact_us">14. Contact Us\nIf you have any questions or concerns about these Terms and Conditions, please contact us at support@gofithub.com.</string>
+
+</resources>

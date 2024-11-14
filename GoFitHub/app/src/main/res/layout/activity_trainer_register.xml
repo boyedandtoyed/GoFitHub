@@ -54,58 +54,51 @@
             android:text="Upload Profile Picture"
             android:backgroundTint="@color/button_color"/>
 
-        <!-- Physical Information Section -->
+        <!-- Trainer-Specific Fields -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Physical Information"
+            android:text="Trainer Information"
             android:textSize="20sp" />
 
-        <EditText
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/buttonUploadCertificate"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Weight (kg)"
-            android:inputType="number" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Height (cm)"
-            android:inputType="number" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Date of Birth"
-            android:inputType="date" />
-
-        <!-- Goals Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Goals"
-            android:textSize="20sp" />
+            android:text="Upload Certificate"
+            android:backgroundTint="@color/button_color"/>
 
         <Spinner
-            android:id="@+id/goalTypeSpinner"
+            android:id="@+id/experienceLevelSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:prompt="@string/select_experience_prompt"
+            android:padding="8dp" />
+
+        <Spinner
+            android:id="@+id/specialtySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:prompt="@string/select_goal_prompt"
-            android:padding="8dp"
-            />
+            android:padding="8dp"/>
 
         <EditText
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Briefly explain your goals..." />
+            android:hint="Bio"
+            android:minLines="3" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hourly_rate_promt"
+            android:inputType="numberDecimal" />
 
         <!-- Terms and Conditions and Register Button -->
         <TextView
             android:id="@+id/termsText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Terms and Conditions"
             android:textColor="@color/black" />

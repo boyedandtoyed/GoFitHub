@@ -16,10 +16,12 @@
     <string name="hint_email_address">Enter email address</string>
     <string name="hint_password">Enter password</string>
     <string name="hint_username">Enter username</string>
-    <string name="register_page_title">Welcome! Are you a...</string>
+    <string name="register_page_title">Welcome! Are you a ....</string>
     <string name="Trainer">Trainer</string>
     <string name="GeneralUser">General User</string>
-
+    <string name="select_goal_prompt">Select your goal</string>
+    <string name="select_speciality_prompt">Select your specialty</string>
+    <string name="select_experience_prompt">Select your experience level</string>
 
     <!-- Goal types for User Registration -->
     <string-array name="goal_types">
@@ -46,4 +48,5 @@
         <item>Weightlifting</item>
     </string-array>
 
+    <string name="hourly_rate_promt">Hourly rate(USD) for Personal Training</string>
 </resources>

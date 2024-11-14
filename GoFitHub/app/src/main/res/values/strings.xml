@@ -4,7 +4,6 @@
     <string name="button_continue_as_guest">Continue as Guest</string>
     <string name="button_user_login">User Login</string>
     <string name="button_trainer_login">Trainer Login</string>
-    <color name="button_color">#03A9F4</color>
     <color name="app_name_color">#009688</color>
     <string name="title_activity_user_login">UserLoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -15,5 +14,9 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="hint_email_address">Enter email address</string>
+    <string name="hint_password">Enter password</string>
+    <string name="hint_username">Enter username</string>
+
 
 </resources>

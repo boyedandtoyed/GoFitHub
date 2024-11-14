@@ -21,5 +21,29 @@
     <string name="GeneralUser">General User</string>
 
 
+    <!-- Goal types for User Registration -->
+    <string-array name="goal_types">
+        <item>Lose Weight</item>
+        <item>Gain Weight</item>
+        <item>Improve Endurance</item>
+        <item>Increase Focus</item>
+    </string-array>
+
+    <!-- Experience levels for Trainer Registration -->
+    <string-array name="experience_levels">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Experienced</item>
+    </string-array>
+
+    <!-- Specialties for Trainer Registration -->
+    <string-array name="specialties">
+        <item>Running</item>
+        <item>Walking</item>
+        <item>Cycling</item>
+        <item>Yoga</item>
+        <item>HIIT</item>
+        <item>Weightlifting</item>
+    </string-array>
 
 </resources>

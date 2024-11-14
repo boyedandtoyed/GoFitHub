@@ -4,9 +4,8 @@
     <string name="button_continue_as_guest">Continue as Guest</string>
     <string name="button_login">Login</string>
     <string name="button_register">Register</string>
-    <color name="app_name_color">#009688</color>
-    <string name="title_activity_user_login">UserLoginActivity</string>
-    <string name="prompt_email">Email</string>
+
+
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
@@ -17,6 +16,10 @@
     <string name="hint_email_address">Enter email address</string>
     <string name="hint_password">Enter password</string>
     <string name="hint_username">Enter username</string>
+    <string name="register_page_title">Welcome! Are you a...</string>
+    <string name="Trainer">Trainer</string>
+    <string name="GeneralUser">General User</string>
+
 
 
 </resources>

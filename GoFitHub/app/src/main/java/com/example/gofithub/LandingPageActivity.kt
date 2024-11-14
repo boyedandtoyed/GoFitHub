@@ -19,16 +19,20 @@ class LandingPageActivity : AppCompatActivity() {
             openLoginActivity()
         }
 
-//        findViewById<Button>(R.id.buttonTrainerLogin).setOnClickListener {
-//            openLoginActivity()
-//        }
+        findViewById<Button>(R.id.buttonRegister).setOnClickListener {
+            openRegsiterActivity()
+        }
     }
 
     private fun openLoginActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
+    private fun openRegsiterActivity() {
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
     }
+}
 
 
 

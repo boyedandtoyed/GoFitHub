@@ -6,5 +6,14 @@
     <string name="button_trainer_login">Trainer Login</string>
     <color name="button_color">#03A9F4</color>
     <color name="app_name_color">#009688</color>
+    <string name="title_activity_user_login">UserLoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
 </resources>

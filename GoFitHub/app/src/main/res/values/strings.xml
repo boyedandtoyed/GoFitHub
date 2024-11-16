@@ -48,6 +48,6 @@
         <item>Weightlifting</item>
     </string-array>
 
-    <string name="hourly_rate_promt">Hourly rate(USD) for Personal Training</string>
+    <string name="hourly_rate_prompt">Hourly rate(USD) for Personal Training</string>
 
 </resources>

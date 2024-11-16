@@ -18,28 +18,53 @@
             android:text="Personal Information"
             android:textSize="20sp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="First Name" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Last Name" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last Name" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Email" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
             android:inputType="textEmailAddress" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Password" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Confirm Password" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,6 +87,11 @@
             android:text="Trainer Information"
             android:textSize="20sp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Upload Certificate" />
         <Button
             android:id="@+id/buttonUploadCertificate"
             android:layout_width="wrap_content"
@@ -69,6 +99,11 @@
             android:text="Upload Certificate"
             android:backgroundTint="@color/button_color"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Experience Level" />
         <Spinner
             android:id="@+id/experienceLevelSpinner"
             android:layout_width="match_parent"
@@ -76,6 +111,11 @@
             android:prompt="@string/select_experience_prompt"
             android:padding="8dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Specialty" />
         <Spinner
             android:id="@+id/specialtySpinner"
             android:layout_width="match_parent"
@@ -83,16 +123,26 @@
             android:prompt="@string/select_goal_prompt"
             android:padding="8dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Bio" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Bio"
             android:minLines="3" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Hourly Rate" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hourly_rate_promt"
+            android:hint="@string/hourly_rate_prompt"
             android:inputType="numberDecimal" />
 
         <!-- Terms and Conditions and Register Button -->

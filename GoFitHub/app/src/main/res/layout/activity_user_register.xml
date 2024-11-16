@@ -18,32 +18,67 @@
             android:text="Personal Information"
             android:textSize="20sp" />
 
+        <!-- First Name Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="First Name" />
+            android:hint="Enter your first name" />
 
+        <!-- Last Name Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last Name" />
+            android:hint="Enter your last name" />
 
+        <!-- Email Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="Enter your email"
             android:inputType="textEmailAddress" />
 
+        <!-- Password Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Enter your password"
             android:inputType="textPassword" />
 
+        <!-- Confirm Password Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirm Password"
+            android:hint="Confirm your password"
             android:inputType="textPassword" />
 
         <!-- Upload Profile Picture -->
@@ -52,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Upload Profile Picture"
-            android:backgroundTint="@color/button_color"/>
+            android:backgroundTint="@color/button_color" />
 
         <!-- Physical Information Section -->
         <TextView
@@ -62,22 +97,43 @@
             android:text="Physical Information"
             android:textSize="20sp" />
 
+        <!-- Weight Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight (kg)"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Weight (kg)"
+            android:hint="Enter your weight"
             android:inputType="number" />
 
+        <!-- Height Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height (cm)"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Height (cm)"
+            android:hint="Enter your height"
             android:inputType="number" />
 
+        <!-- Date of Birth Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date of Birth"
+            android:hint="MM/DD/YYYY"
             android:inputType="date" />
 
         <!-- Goals Section -->
@@ -88,19 +144,33 @@
             android:text="Goals"
             android:textSize="20sp" />
 
+        <!-- Goal Type Spinner Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Your Goal"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
         <Spinner
             android:id="@+id/goalTypeSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:prompt="@string/select_goal_prompt"
-            android:padding="8dp"
-            />
+            android:padding="8dp" />
 
-        <EditText
-            android:layout_width="250dp"
+        <!-- Goal Explanation Label and Input -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Briefly explain your goals..." />
+            android:text="Briefly Explain Your Goals"
+            android:textSize="16sp"
+            android:textColor="@android:color/black" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="..."
+            android:inputType="textMultiLine" />
 
         <!-- Terms and Conditions and Register Button -->
         <TextView
@@ -118,7 +188,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Register"
-            android:backgroundTint="@color/button_color"/>
+            android:backgroundTint="@color/button_color" />
 
     </LinearLayout>
 </ScrollView>

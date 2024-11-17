@@ -1,22 +1,24 @@
 package com.example.gofithub
 
-import android.app.DatePickerDialog
 import android.content.Intent
-import android.icu.util.Calendar
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import android.widget.Button
 import android.widget.EditText
-
+import android.widget.TextView
+import android.widget.Button
+import android.widget.Spinner
+import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import database.DatabaseHelper
 
 class TrainerRegisterActivity : AppCompatActivity() {
+
+    private var profileImageUri: Uri? = null
+    private var certificateUri: Uri? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trainer_register)
@@ -43,12 +45,7 @@ class TrainerRegisterActivity : AppCompatActivity() {
             specialtySpinner.adapter = adapter
         }
 
-        // Set up the Terms and Conditions text view
-        val termsTextView = findViewById<TextView>(R.id.termsText)
-        termsTextView.setOnClickListener {
-            val intent = Intent(this, TermsAndConditionsActivity::class.java)
-            startActivity(intent)
-        }
+        // Get references to EditTexts and other components
         val firstNameEditText = findViewById<EditText>(R.id.firstNameEditText)
         val lastNameEditText = findViewById<EditText>(R.id.lastNameEditText)
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
@@ -56,10 +53,39 @@ class TrainerRegisterActivity : AppCompatActivity() {
         val confirmPasswordEditText = findViewById<EditText>(R.id.confirmPasswordEditText)
         val errorTextView = findViewById<TextView>(R.id.errorTextView)
         val registerButton = findViewById<Button>(R.id.registerButton)
+        val bioEditText = findViewById<EditText>(R.id.bioEditText)
+        val hourlyRateEditText = findViewById<EditText>(R.id.hourlyRateEditText)
 
+        val uploadProfilePictureButton = findViewById<Button>(R.id.buttonUploadPicture)
+        val uploadCertificateButton = findViewById<Button>(R.id.buttonUploadCertificate)
 
+        // Image picker activity result callback for Profile Picture
+        val pickProfileImageResult = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            profileImageUri = uri
+            Toast.makeText(this, "Profile picture selected!", Toast.LENGTH_SHORT).show()
+        }
 
+        // Image picker activity result callback for Certificate
+        val pickCertificateResult = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+            certificateUri = uri
+            Toast.makeText(this, "Certificate selected!", Toast.LENGTH_SHORT).show()
+        }
+
+        // Handle Profile Picture Upload Button
+        uploadProfilePictureButton.setOnClickListener {
+            // Trigger image picker to allow the trainer to select a profile picture
+            pickProfileImageResult.launch("image/*")
+        }
+
+        // Handle Certificate Upload Button
+        uploadCertificateButton.setOnClickListener {
+            // Trigger image picker to allow the trainer to select a certificate
+            pickCertificateResult.launch("application/pdf")
+        }
+
+        // On Click Listener for Register Button
         registerButton.setOnClickListener {
+
             // Reset any previous error messages
             errorTextView.visibility = View.GONE
 
@@ -70,41 +96,56 @@ class TrainerRegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (!isPasswordsMatch(
-                    passwordEditText.text.toString(),
-                    confirmPasswordEditText.text.toString()
-                )
-            ) {
-                errorTextView.text = "Passwords do not match."
+            if (!isPasswordsMatch(passwordEditText.text.toString(), confirmPasswordEditText.text.toString())) {
+                errorTextView.text = "Passwords don't match."
                 errorTextView.visibility = View.VISIBLE
                 return@setOnClickListener
             }
-
             if (!isValidPassword(passwordEditText.text.toString())) {
-                errorTextView.text =
-                    "Password must be at least 10 characters long, and contain letters, numbers, and symbols."
+                errorTextView.text = "Password must be at least 10 characters long and include at least one character and alphanumeric character."
                 errorTextView.visibility = View.VISIBLE
                 return@setOnClickListener
             }
 
+            // All fields are validated, save the trainer's data
+            val databaseHelper = DatabaseHelper(this)
 
+            val firstName = firstNameEditText.text.toString()
+            val lastName = lastNameEditText.text.toString()
+            val email = emailEditText.text.toString()
+            val password = passwordEditText.text.toString()
+
+            // Save profile image URI and certificate URI if available
+            val profilePicturePath = profileImageUri?.toString() ?: ""
+            val certificatePath = certificateUri?.toString() ?: ""
+
+            // Insert trainer data into the database
+            val result = databaseHelper.addTrainer(firstName, lastName, email, password,
+                experienceLevelSpinner.selectedItem.toString(), specialtySpinner.selectedItem.toString(),
+                certificatePath,bioEditText.text.toString(),hourlyRateEditText.text.toString().toDouble(),
+                profilePicturePath)
+            if (result == -1L) {
+                errorTextView.text = "Failed to register trainer."
+                errorTextView.visibility = View.VISIBLE
+            } else {
+                // Redirect to next activity (Trainer's Dashboard or Home)
+                val intent = Intent(this, TrainerDashboardActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
-
     }
-    // Function to check if email is valid
-    fun isValidEmail(email: String): Boolean {
+
+    private fun isValidEmail(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-    // Function to check if passwords match
-    fun isPasswordsMatch(password: String, confirmPassword: String): Boolean {
-        return (password == confirmPassword)
+    private fun isPasswordsMatch(password: String, confirmPassword: String): Boolean {
+        return password == confirmPassword
     }
-
-    // Function to check if password is strong enough
-    fun isValidPassword(password: String): Boolean {
-        // At least 10 characters, with letters, numbers, and symbols
-        val passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{10,}$"
-        return password.matches(passwordPattern.toRegex())
+    // check if password has at least 10 characters and include at least one character and alphanumeric character
+    private fun isValidPassword(password: String): Boolean {
+        val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
+        return password.matches(passwordRegex.toRegex())
     }
 }

@@ -20,11 +20,11 @@ class LoginActivity : AppCompatActivity() {
 
         }
         findViewById<Button>(R.id.loginRegisterButton).setOnClickListener {
-            openRegsiterActivity()
+            openRegisterActivity()
         }
 
     }
-    private fun openRegsiterActivity() {
+    private fun openRegisterActivity() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }

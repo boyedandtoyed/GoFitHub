@@ -49,5 +49,12 @@
     </string-array>
 
     <string name="hourly_rate_prompt">Hourly rate(USD) for Personal Training</string>
+    <string name="bio_for_trainer_hint">Enter your Brief training history.</string>
+    <string name="upload_certificate">Upload Certificate</string>
+    <string name="upload_profile_picture">Upload Profile Picture</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="last_name">Last Name</string>
 
 </resources>

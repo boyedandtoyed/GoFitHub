@@ -15,60 +15,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Personal Information"
+            android:text="Personal Information Section"
             android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="First Name" />
         <EditText
+            android:id="@+id/firstNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="Last Name" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Last Name" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="Email" />
         <EditText
+            android:id="@+id/lastNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/last_name" />
+
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
             android:inputType="textEmailAddress" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="Password" />
         <EditText
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="Confirm Password" />
+
         <EditText
+            android:id="@+id/confirmPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirm Password"
+            android:hint="@string/confirm_password"
             android:inputType="textPassword" />
 
         <!-- Upload Profile Picture -->
@@ -76,27 +59,24 @@
             android:id="@+id/buttonUploadPicture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload Profile Picture"
-            android:backgroundTint="@color/button_color"/>
+            android:text="@string/upload_profile_picture"
+            android:backgroundTint="@color/button_color"
+            android:textColor="@color/button_text_color"/>
 
         <!-- Trainer-Specific Fields -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Trainer Information"
+            android:text="Trainer Information Section"
             android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="Upload Certificate" />
+        <!--UPLOADING CERTIFICATE-->
         <Button
             android:id="@+id/buttonUploadCertificate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Upload Certificate"
+            android:text="@string/upload_certificate"
             android:backgroundTint="@color/button_color"/>
 
         <TextView
@@ -129,9 +109,10 @@
             android:padding="4dp"
             android:text="Bio" />
         <EditText
+            android:id="@+id/bioEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Bio"
+            android:hint="@string/bio_for_trainer_hint"
             android:minLines="3" />
 
         <TextView
@@ -140,6 +121,7 @@
             android:padding="4dp"
             android:text="Hourly Rate" />
         <EditText
+            android:id="@+id/hourlyRateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hourly_rate_prompt"
@@ -156,13 +138,24 @@
             android:textSize="12sp"
             android:textStyle="bold|italic" />
 
+        <TextView
+            android:id="@+id/errorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:textColor="@color/error_color"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
         <Button
             android:id="@+id/registerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Register"
-            android:backgroundTint="@color/button_color"/>
+            android:text="@string/button_register"
+            android:backgroundTint="@color/button_color"
+            android:textColor="@color/button_text_color"/>
 
     </LinearLayout>
 </ScrollView>

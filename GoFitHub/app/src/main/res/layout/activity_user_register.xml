@@ -104,11 +104,15 @@
             android:text="Date of Birth"
             android:textSize="16sp"
             android:textColor="@android:color/black" />
-        <EditText
+        <Button
             android:id="@+id/dobEditText"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="MM/DD/YYYY"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/button_color"
+            android:textColor="@color/button_text_color"
+            android:text="MM/DD/YYYY"
+            android:padding="8dp"
             android:focusable="true"
             android:focusableInTouchMode="true"/>
 

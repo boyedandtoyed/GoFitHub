@@ -1,6 +1,5 @@
 package com.example.gofithub
 
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -12,7 +11,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import database.DatabaseHelper
+
 
 class TrainerRegisterActivity : AppCompatActivity() {
 
@@ -107,32 +106,6 @@ class TrainerRegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // All fields are validated, save the trainer's data
-            val databaseHelper = DatabaseHelper(this)
-
-            val firstName = firstNameEditText.text.toString()
-            val lastName = lastNameEditText.text.toString()
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
-
-            // Save profile image URI and certificate URI if available
-            val profilePicturePath = profileImageUri?.toString() ?: ""
-            val certificatePath = certificateUri?.toString() ?: ""
-
-            // Insert trainer data into the database
-            val result = databaseHelper.addTrainer(firstName, lastName, email, password,
-                experienceLevelSpinner.selectedItem.toString(), specialtySpinner.selectedItem.toString(),
-                certificatePath,bioEditText.text.toString(),hourlyRateEditText.text.toString().toDouble(),
-                profilePicturePath)
-            if (result == -1L) {
-                errorTextView.text = "Failed to register trainer."
-                errorTextView.visibility = View.VISIBLE
-            } else {
-                // Redirect to next activity (Trainer's Dashboard or Home)
-                val intent = Intent(this, TrainerDashboardActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
         }
     }
 

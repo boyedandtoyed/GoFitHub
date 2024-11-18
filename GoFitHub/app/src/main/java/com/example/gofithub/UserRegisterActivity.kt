@@ -13,9 +13,8 @@ import android.widget.Spinner
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
-import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
-import database.DatabaseHelper
+
 
 class UserRegisterActivity : AppCompatActivity() {
 
@@ -42,17 +41,16 @@ class UserRegisterActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val confirmPasswordEditText = findViewById<EditText>(R.id.confirmPasswordEditText)
-        val dobEditText = findViewById<EditText>(R.id.dobEditText)
+        val dobEditButton = findViewById<Button>(R.id.dobEditText)
         val weightEditText = findViewById<EditText>(R.id.weightEditText)
         val heightEditText = findViewById<EditText>(R.id.heightEditText)
-        val bioEditText = findViewById<EditText>(R.id.bioEditText)
+        val bioEditText = findViewById<EditText>(R.id.goalExplanationEditText)
         val errorTextView = findViewById<TextView>(R.id.errorTextView)
         val registerButton = findViewById<Button>(R.id.registerButton)
 
-        val uploadProfilePictureButton = findViewById<Button>(R.id.buttonUploadPicture)
 
-        //dialog box for date of birth
-        dobEditText.setOnClickListener {
+        //Date picker dialog box open for dobEditButton onClickListener
+        dobEditButton.setOnClickListener {
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
@@ -60,24 +58,18 @@ class UserRegisterActivity : AppCompatActivity() {
 
             val datePickerDialog = DatePickerDialog(
                 this,
-                { _, selectedYear, selectedMonth, selectedDay ->
-                    val formattedDate = "${selectedMonth + 1}/${selectedDay}/${selectedYear}"
-                    dobEditText.setText(formattedDate)
+                { _, year, month, dayOfMonth ->
+                    // Update the dobEditButton text with the selected date
+                    val selectedDate = "$dayOfMonth/${month + 1}/$year"
+                    dobEditButton.text = selectedDate
                 },
-                year, month, day
+                year,
+                month,
+                day
             )
             datePickerDialog.show()
         }
-        // Image picker activity result callback
-        val pickImageResult = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            profileImageUri = uri
-            Toast.makeText(this, "Profile picture selected!", Toast.LENGTH_SHORT).show()
-        }
 
-        uploadProfilePictureButton.setOnClickListener {
-            // Trigger image picker to allow the user to select a profile picture
-            pickImageResult.launch("image/*")
-        }
 
         // On Click Listener for Register Button
         registerButton.setOnClickListener {
@@ -103,35 +95,6 @@ class UserRegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // All fields are validated, save the user's data
-            val databaseHelper = DatabaseHelper(this)
-
-            val firstName = firstNameEditText.text.toString()
-            val lastName = lastNameEditText.text.toString()
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            val dob = dobEditText.text.toString()
-            val weight = weightEditText.text.toString().toDoubleOrNull() ?: 0.0
-            val height = heightEditText.text.toString().toDoubleOrNull() ?: 0.0
-            val goalType = goalTypeSpinner.selectedItem.toString()
-            val bio = bioEditText.text.toString()
-
-
-            // Save profile image URI if available
-            val profilePicturePath = profileImageUri?.toString() ?: ""
-
-            // Insert user data into the database
-            val result = databaseHelper.addUser(firstName, lastName, email, password, dob, weight, height, goalType, bio, profilePicturePath)
-
-            if (result == -1L) {
-                errorTextView.text = "Failed to register user."
-                errorTextView.visibility = View.VISIBLE
-            } else {
-                // Redirect to next activity (User's Dashboard or Home)
-                val intent = Intent(this, UserDashboardActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
         }
     }
 

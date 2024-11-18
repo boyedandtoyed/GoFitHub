@@ -38,7 +38,8 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please enter both email and password.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter both email and password.", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
@@ -49,7 +50,8 @@ class LoginActivity : AppCompatActivity() {
 
                 if (user == null) {
                     // If the email doesn't exist
-                    Toast.makeText(this@LoginActivity, "Email not registered.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, "Email not registered.", Toast.LENGTH_SHORT)
+                        .show()
                 } else {
                     // If email exists, verify the password
                     val hashedPassword = user.password
@@ -60,13 +62,17 @@ class LoginActivity : AppCompatActivity() {
                         finish() // Close the LoginActivity so the user can't go back
                     } else {
                         // If passwords don't match
-                        Toast.makeText(this@LoginActivity, "Incorrect password.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Incorrect password.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
         }
-    }
 
+    }
     private fun openRegisterActivity() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)

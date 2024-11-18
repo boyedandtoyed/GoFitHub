@@ -9,6 +9,7 @@ object SecurityUtils {
         return hash.joinToString("") { "%02x".format(it) }
     }
     fun verifyPassword(password: String, hashedPassword: String): Boolean {
+
         return hashPassword(password) == hashedPassword
     }
 }

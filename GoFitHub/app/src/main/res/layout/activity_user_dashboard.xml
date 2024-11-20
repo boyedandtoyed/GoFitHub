@@ -9,7 +9,7 @@
     android:backgroundTintMode="screen"
     tools:context=".UserDashboardActivity">
 
-    <!-- Top Header with User's Name and Profile Picture -->
+    <!-- Top Header with User's Name and Profile Picture and subscribe button-->
 
     <LinearLayout
         android:id="@+id/header"
@@ -33,15 +33,17 @@
             android:textStyle="bold|italic" />
 
         <Button
-            android:id="@+id/homeButton"
+            android:id="@+id/subscribeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_weight="1"
             android:backgroundTint="@color/button_color"
-            android:text="Home"
+            android:text="Subscribe"
             android:textColor="@android:color/white"
-            app:cornerRadius="0dp" />
+            app:cornerRadius="0dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="810dp"/>
 
         <ImageView
             android:id="@+id/imageView2"
@@ -57,12 +59,33 @@
 
     </LinearLayout>
 
-    <!-- Footer Section with 5 Buttons -->
+    <!-- Advertisement Panel Just Below Header -->
+    <LinearLayout
+        android:id="@+id/adPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/adImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+
+    <!--4 buttons activities, friends, training, plans-->
     <TableLayout
         android:id="@+id/navigation_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/subscribeSection"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recentPlansSection">
@@ -149,44 +172,24 @@
             android:text="You need to take 5000 steps today to reach your goal!"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
+
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/subscribeSection"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/subscribeBackground"
-        android:gravity="center"
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/button_color"
+        android:text="Home"
+        android:textColor="@android:color/white"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-56dp">
-
-        <TextView
-            android:id="@+id/subscribeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:text="Subscribe and feel the benefits!"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-    </FrameLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <!-- Footer Section with 5 Buttons -->
-    <LinearLayout
-        android:id="@+id/footerSection"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_margin="0dp"
-        android:orientation="horizontal"
-        android:padding="0dp"
-        android:weightSum="5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

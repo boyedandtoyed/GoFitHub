@@ -1,0 +1,146 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/subscription_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subscribe to Unlock Premium Features"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <!-- Benefits Section -->
+        <TextView
+            android:id="@+id/benefits_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Benefits of Subscription:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/remove_ads_benefit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Remove Ads"
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/personal_trainer_benefit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Personal Trainer Plans"
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/special_training_benefit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Get Access to Special Training Videos"
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:paddingBottom="16dp"/>
+
+        <!-- Subscription Terms Section -->
+        <TextView
+            android:id="@+id/subscription_terms_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Your Subscription Plan:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingBottom="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/subscription_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/monthly_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly - $9.99"
+                android:textSize="16sp"
+                android:textColor="#555555"/>
+
+            <RadioButton
+                android:id="@+id/annual_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Annual - $99.99 (Save 20%)"
+                android:textSize="16sp"
+                android:textColor="#555555"/>
+        </RadioGroup>
+
+        <!-- Payment Methods Section -->
+        <TextView
+            android:id="@+id/payment_methods_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Payment Method:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:paddingBottom="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/payment_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/debit_credit_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Debit/Credit Card"
+                android:textSize="16sp"
+                android:textColor="#555555"/>
+
+            <RadioButton
+                android:id="@+id/paypal_option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PayPal"
+                android:textSize="16sp"
+                android:textColor="#555555"/>
+        </RadioGroup>
+
+        <!-- Subscribe Button -->
+        <Button
+            android:id="@+id/subscribe_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subscribe Now"
+            android:backgroundTint="#007BFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

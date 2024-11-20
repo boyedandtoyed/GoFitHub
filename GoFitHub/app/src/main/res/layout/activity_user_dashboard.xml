@@ -4,31 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserDashboardActivity"
-    android:backgroundTint="@color/white">
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/white"
+    android:backgroundTintMode="screen"
+    tools:context=".UserDashboardActivity">
 
     <!-- Top Header with User's Name and Profile Picture -->
-
-    <!--    <ImageView-->
-    <!--        android:id="@+id/profileImageView"-->
-    <!--        android:layout_width="80dp"-->
-    <!--        android:layout_height="80dp"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:layout_marginEnd="16dp"-->
-    <!--        android:layout_alignParentEnd="true"-->
-    <!--        android:src="@drawable/ic_profile_placeholder"-->
-    <!--        android:contentDescription="Profile Picture"-->
-    <!--        android:scaleType="centerCrop"-->
-    <!--        android:layout_alignParentRight="true"-->
-    <!--        android:clipToOutline="true"  &lt;!&ndash; Clip image into a circular shape &ndash;&gt;-->
-    <!--    android:background="@drawable/circular_border"-->
-    <!--    app:layout_constraintTop_toTopOf="parent"-->
-    <!--    app:layout_constraintEnd_toEndOf="parent" />-->
-
-    <!-- Recent Plans and Progress Section -->
-
-    <!-- Subscribe Section -->
-
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -42,19 +23,25 @@
 
         <TextView
             android:id="@+id/textViewHello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="136dp"
+            android:layout_height="47dp"
+            android:layout_margin="16dp"
             android:layout_weight="1"
-            />
+            android:text="Hello, John Doe!"
+            android:textColor="@color/app_name_color"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="176dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
             android:adjustViewBounds="false"
+            android:background="@drawable/circle_background"
+            android:clipToOutline="true"
             android:cropToPadding="false"
-            app:cornerRadius="10dp"
+            android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 

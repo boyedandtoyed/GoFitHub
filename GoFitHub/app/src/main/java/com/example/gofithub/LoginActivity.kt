@@ -2,6 +2,7 @@ package com.example.gofithub
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -42,67 +43,56 @@ class LoginActivity : AppCompatActivity() {
             }
 
             // Check if the email exists in the database
-            lifecycleScope.launch {
-                val appDatabase = AppDatabase.getInstance(applicationContext)
-                val userDao: UserDao = appDatabase.userDao()
-                val trainerDao: TrainerDao = appDatabase.trainerDao()
-
-                // Check in the User table
-                val user = userDao.getUserByEmail(email)
-                if (user != null) {
-                    // User exists, verify password
-                    val hashedPassword = user.password
-                    if (SecurityUtils.verifyPassword(password, hashedPassword)) {
-                        // Password matches, go to UserDashboardActivity
-                        val intent = Intent(this@LoginActivity, UserDashboardActivity::class.java)
-                        intent.putExtra("userId", user.id)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        // Password doesn't match
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "Incorrect password.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    return@launch
-                }
-
-                // Check in the Trainer table
-                val trainer = trainerDao.getTrainerByEmail(email)
-                if (trainer != null) {
-                    // Trainer exists, verify password
-                    val hashedPassword = trainer.password
-                    if (SecurityUtils.verifyPassword(password, hashedPassword)) {
-                        // Password matches, go to TrainerDashboardActivity
-                        val intent = Intent(this@LoginActivity, TrainerDashboardActivity::class.java)
-                        intent.putExtra("trainerId", trainer.id)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        // Password doesn't match
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "Incorrect password.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    return@launch
-                }
-
-                // If email is not found in both tables
-                Toast.makeText(
-                    this@LoginActivity,
-                    "Email not registered.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            loginUser(email, password)
         }
     }
 
     private fun openRegisterActivity() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun loginUser(email: String, password: String) {
+        lifecycleScope.launch {
+            val appDatabase = AppDatabase.getInstance(applicationContext)
+            val userDao = appDatabase.userDao()
+            val trainerDao = appDatabase.trainerDao()
+
+            // Check user credentials
+            val user = userDao.getUserByEmail(email)
+            val trainer = trainerDao.getTrainerByEmail(email)
+
+            if (user != null) {
+                if (SecurityUtils.verifyPassword(password, user.password)) {
+                    // User authenticated, navigate to UserDashboardActivity
+                    val intent = Intent(this@LoginActivity, UserDashboardActivity::class.java)
+                    // Pass necessary data (e.g., user ID) to the dashboard activity
+                    intent.putExtra("userId", user.id)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Incorrect password.", Toast.LENGTH_SHORT)
+                        .show()
+                    return@launch
+                }
+            } else if (trainer != null) {
+                if (SecurityUtils.verifyPassword(password, trainer.password)) {
+                    // Trainer authenticated, navigate to TrainerDashboardActivity
+                    val intent = Intent(this@LoginActivity, TrainerDashboardActivity::class.java)
+                    // Pass necessary data (e.g., trainer ID) to the dashboard activity
+                    intent.putExtra("trainerId", trainer.id)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Incorrect password.", Toast.LENGTH_SHORT)
+                        .show()
+                    return@launch
+                }
+            } else {
+                Toast.makeText(this@LoginActivity, "Email not found.", Toast.LENGTH_SHORT).show()
+                return@launch
+            }
+        }
+
     }
 }

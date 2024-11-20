@@ -3,7 +3,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="button_color">#4AC3F5</color>
-    <color name="app_name_color">#41EFD8</color>
+    <color name="app_name_color">#00FF15</color>
     <color name="error_color">#FF1500</color>
     <color name="text_color">#000000</color>
     <color name="button_text_color">#454343</color>

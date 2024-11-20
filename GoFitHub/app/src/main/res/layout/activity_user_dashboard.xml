@@ -10,27 +10,38 @@
     tools:context=".UserDashboardActivity">
 
     <!-- Top Header with User's Name and Profile Picture -->
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textViewHello"
-            android:layout_width="136dp"
-            android:layout_height="47dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_weight="1"
             android:text="Hello, John Doe!"
             android:textColor="@color/app_name_color"
             android:textSize="20sp"
             android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/button_color"
+            android:text="Home"
+            android:textColor="@android:color/white"
+            app:cornerRadius="0dp" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -43,19 +54,84 @@
             android:cropToPadding="false"
             android:scaleType="centerCrop"
             tools:srcCompat="@tools:sample/avatars" />
+
     </LinearLayout>
+
+    <!-- Footer Section with 5 Buttons -->
+    <TableLayout
+        android:id="@+id/navigation_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/subscribeSection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recentPlansSection">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/activitiesButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color"
+                android:text="Activities"
+                android:textColor="@android:color/white"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/friendsButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color"
+                android:text="Friends"
+                android:textColor="@android:color/white"
+                app:cornerRadius="0dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/trainingButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color"
+                android:text="Training"
+                android:textColor="@android:color/white"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/plansButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color"
+                android:text="Plans"
+                android:textColor="@android:color/white"
+                app:cornerRadius="0dp" />
+        </TableRow>
+
+    </TableLayout>
 
     <LinearLayout
         android:id="@+id/recentPlansSection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_panel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header">
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.112">
 
         <!-- Recent Plan -->
         <TextView
@@ -75,15 +151,13 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <!-- Footer Section with 5 Buttons -->
     <FrameLayout
         android:id="@+id/subscribeSection"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_marginTop="140dp"
         android:background="@color/subscribeBackground"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/recentPlansSection"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-56dp">
 
         <TextView
@@ -112,61 +186,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Friends Button -->
-
-        <!-- Activities Button -->
-        <Button
-            android:id="@+id/friendsButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/button_color"
-            android:text="Friends"
-            android:textColor="@android:color/white"
-            app:cornerRadius="0dp" />
-
-        <Button
-            android:id="@+id/activitiesButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/button_color"
-            android:text="Activities"
-            android:textColor="@android:color/white"
-            app:cornerRadius="0dp" />
-
-        <!-- Home Button -->
-        <Button
-            android:id="@+id/homeButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/button_color"
-            android:text="Home"
-            android:textColor="@android:color/white"
-            app:cornerRadius="0dp" />
-
-        <!-- Plans Button -->
-        <Button
-            android:id="@+id/plansButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/button_color"
-            android:text="Plans"
-            android:textColor="@android:color/white"
-            app:cornerRadius="0dp" />
-
-        <!-- Training Button -->
-        <Button
-            android:id="@+id/trainingButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/button_color"
-            android:text="Training"
-            android:textColor="@android:color/white"
-            app:cornerRadius="0dp" />
 
     </LinearLayout>
 

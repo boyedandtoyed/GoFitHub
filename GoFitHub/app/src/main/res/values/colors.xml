@@ -8,4 +8,7 @@
     <color name="text_color">#000000</color>
     <color name="button_text_color">#454343</color>
     <color name="subscribeBackground">#4AC3F5</color>
+    <color name="background_entries">#E9E2E2</color>
+    <color name="entries_color">#000000</color>
+    <color name="hint_text_color">#999999</color>
 </resources>

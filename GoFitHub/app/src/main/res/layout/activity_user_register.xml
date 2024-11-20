@@ -20,45 +20,75 @@
 
         <!-- First Name Label and Input -->
         <EditText
+            android:lines="1"
+            android:textColor="@color/text_color"
             android:id="@+id/firstNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your first name" />
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
+            android:hint="Enter your first name"
+            android:textColorHint="@color/hint_text_color"
+            android:background="@drawable/rounded_corners"/>
 
         <!-- Last Name Label and Input -->
 
         <EditText
+            android:lines="1"
+            android:textColor="@color/text_color"
             android:id="@+id/lastNameEditText"
             android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
             android:layout_height="wrap_content"
-            android:hint="Enter your last name" />
+            android:textColorHint="@color/hint_text_color"
+            android:hint="Enter your last name"
+            android:background="@drawable/rounded_corners"/>
 
         <!-- Email Label and Input -->
 
         <EditText
+            android:lines="1"
+            android:textColor="@color/text_color"
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
             android:hint="Enter your email"
-            android:inputType="textEmailAddress" />
+            android:textColorHint="@color/hint_text_color"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/rounded_corners"/>
 
         <!-- Password Label and Input -->
 
         <EditText
+            android:lines="1"
+            android:textColor="@color/text_color"
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
             android:hint="Enter your password"
-            android:inputType="textPassword" />
+            android:textColorHint="@color/hint_text_color"
+            android:inputType="textPassword"
+            android:background="@drawable/rounded_corners"/>
 
         <!-- Confirm Password Label and Input -->
 
         <EditText
+            android:lines="1"
+            android:textColor="@color/text_color"
             android:id="@+id/confirmPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
+            android:textColorHint="@color/hint_text_color"
             android:hint="Confirm your password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:background="@drawable/rounded_corners"/>
 
         <!-- Upload Profile Picture -->
         <Button
@@ -81,20 +111,33 @@
         <!-- Weight Label and Input -->
 
         <EditText
+            android:lines="1"
+            android:textColor="@color/text_color"
             android:id="@+id/weightEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
+            android:textColorHint="@color/hint_text_color"
             android:hint="Enter your weight in kilograms"
-            android:inputType="number" />
+            android:inputType="number"
+            android:background="@drawable/rounded_corners"/>
 
         <!-- Height Label and Input -->
 
         <EditText
+            android:lines="1"
+
+            android:textColor="@color/text_color"
             android:id="@+id/heightEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
             android:hint="Enter your height in centimeters"
-            android:inputType="number" />
+            android:textColorHint="@color/hint_text_color"
+            android:inputType="number"
+            android:background="@drawable/rounded_corners"/>
 
         <!-- Date of Birth Label and Input -->
         <TextView
@@ -148,10 +191,16 @@
             android:textSize="16sp"
             android:textColor="@android:color/black" />
         <EditText
+            android:lines="3"
+            android:textColor="@color/text_color"
             android:id="@+id/goalExplanationEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
             android:hint="..."
+            android:textColorHint="@color/hint_text_color"
+            android:background="@drawable/rounded_corners"
             android:inputType="textMultiLine" />
 
         <!-- Terms and Conditions and Register Button -->

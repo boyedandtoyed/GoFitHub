@@ -3,20 +3,19 @@ package com.example.gofithub
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import com.example.gofithub.UserRegisterActivity
-import com.example.gofithub.database.User
 import database.AppDatabase
 import kotlinx.coroutines.launch
+import com.example.gofithub.SubscribeViewActivity
 
 class UserDashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +25,11 @@ class UserDashboardActivity : AppCompatActivity() {
 
         val adImage = findViewById<ImageView>(R.id.adImage)
         val adPanel = findViewById<LinearLayout>(R.id.adPanel)
+        val subscribeButton = findViewById<Button>(R.id.subscribeButton)
         val helloTextView = findViewById<TextView>(R.id.textViewHello)
         val userDao = AppDatabase.getInstance(this).userDao()
         val id = intent.getIntExtra("userId", -1)
+        subscribeButton.visibility=View.GONE
 
 
         lifecycleScope.launch {
@@ -42,8 +43,14 @@ class UserDashboardActivity : AppCompatActivity() {
                         if (!it) {
                             Glide.with(this@UserDashboardActivity)
                                 .load("https://m.media-amazon.com/images/I/812NUDPv2LL._AC_SY695_.jpg")  // Replace with actual URL
-                                .into(adImage);
-
+                                .into(adImage)
+                            subscribeButton.visibility=View.VISIBLE
+                            subscribeButton.setOnClickListener {
+                                val intent = Intent(this@UserDashboardActivity,
+                                    SubscribeViewActivity::class.java)
+                                intent.putExtra("user_id", user.id)
+                                startActivity(intent)
+                            }
                         }
                     }
                 }

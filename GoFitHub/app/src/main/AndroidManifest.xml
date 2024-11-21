@@ -18,7 +18,7 @@
         android:theme="@style/Theme.GoFitHub"
         tools:targetApi="31">
         <activity
-            android:name=".SubscriptionPage"
+            android:name=".SubscribeViewActivity"
             android:exported="false" />
         <activity
             android:name=".UserDashboardActivity"

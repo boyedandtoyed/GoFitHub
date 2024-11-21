@@ -80,6 +80,7 @@ class LoginActivity : AppCompatActivity() {
                     // Trainer authenticated, navigate to TrainerDashboardActivity
                     val intent = Intent(this@LoginActivity, TrainerDashboardActivity::class.java)
                     // Pass necessary data (e.g., trainer ID) to the dashboard activity
+                    Log.d("Trainer ID going from login is----", trainer.id.toString())
                     intent.putExtra("trainerId", trainer.id)
                     startActivity(intent)
                     finish()

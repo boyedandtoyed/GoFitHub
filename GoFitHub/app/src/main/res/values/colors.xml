@@ -11,4 +11,5 @@
     <color name="background_entries">#E9E2E2</color>
     <color name="entries_color">#000000</color>
     <color name="hint_text_color">#999999</color>
+    <color name="gray">#444242</color>
 </resources>

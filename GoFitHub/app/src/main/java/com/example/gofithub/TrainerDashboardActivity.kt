@@ -19,13 +19,14 @@ class TrainerDashboardActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_trainer_dashboard)
 
-        val helloTextView = findViewById<TextView>(R.id.textViewHello)
+        val helloTextView = findViewById<TextView>(R.id.textViewHelloTrainer)
         val trainerDao = AppDatabase.getInstance(this).userDao()
-        val id = intent.getIntExtra("userId", -1)
+        val id = intent.getIntExtra("trainerId", -1)
 
         lifecycleScope.launch {
             try {
                 // Retrieve user from the database
+                Log.d("Trainer ID coming in dashboard is----", id.toString())
                 val trainer = trainerDao.getUserById(id)
                 if (trainer != null) {
                     val name = trainer.firstName

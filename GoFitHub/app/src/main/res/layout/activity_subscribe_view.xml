@@ -11,6 +11,7 @@
         android:orientation="vertical">
 
         <!-- Title -->
+
         <TextView
             android:id="@+id/subscription_title"
             android:layout_width="wrap_content"
@@ -46,7 +47,7 @@
             android:id="@+id/personal_trainer_benefit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="• Personal Trainer Plans"
+            android:text="Trainer's personal Workout Plans"
             android:textSize="16sp"
             android:textColor="#555555"
             android:paddingBottom="4dp"/>
@@ -104,14 +105,13 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#000000"
-            android:paddingBottom="8dp"/>
+            android:paddingBottom="8dp" />
 
         <RadioGroup
             android:id="@+id/payment_options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="16dp">
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/debit_credit_option"
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:text="Debit/Credit Card"
                 android:textSize="16sp"
-                android:textColor="#555555"/>
+                android:textColor="#555555" />
 
             <RadioButton
                 android:id="@+id/paypal_option"
@@ -127,8 +127,51 @@
                 android:layout_height="wrap_content"
                 android:text="PayPal"
                 android:textSize="16sp"
-                android:textColor="#555555"/>
+                android:textColor="#555555" />
         </RadioGroup>
+
+        <!-- Credit Card Details -->
+        <LinearLayout
+            android:id="@+id/credit_card_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:paddingTop="16dp">
+
+            <EditText
+                android:id="@+id/credit_card_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Credit Card Number (16 digits)"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/security_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Security Code (3 digits)"
+                android:inputType="numberPassword" />
+
+            <EditText
+                android:id="@+id/expiration_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Expiration Date (MM/YY)"
+                android:inputType="datetime" />
+        </LinearLayout>
+
+        <!-- PayPal Button -->
+        <Button
+            android:id="@+id/paypal_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login to PayPal"
+            android:visibility="gone"
+            android:backgroundTint="#007BFF"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp" />
+
 
         <!-- Subscribe Button -->
         <Button
@@ -136,11 +179,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Subscribe Now"
-            android:backgroundTint="#007BFF"
+            android:backgroundTint="#CCCCCC"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
+            android:enabled="false"
             android:padding="12dp"
-            android:layout_marginTop="16dp"/>
-
+            android:layout_marginTop="24dp" />
     </LinearLayout>
 </ScrollView>

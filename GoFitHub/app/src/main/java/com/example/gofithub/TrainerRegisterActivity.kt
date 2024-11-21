@@ -1,5 +1,6 @@
 package com.example.gofithub
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -11,6 +12,13 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.lifecycleScope
+import com.example.gofithub.UserRegisterActivity
+import com.example.gofithub.database.Trainer
+import com.example.gofithub.database.User
+import com.example.gofithub.utils.SecurityUtils
+import database.AppDatabase
+import kotlinx.coroutines.launch
 
 
 class TrainerRegisterActivity : AppCompatActivity() {
@@ -105,6 +113,39 @@ class TrainerRegisterActivity : AppCompatActivity() {
                 errorTextView.visibility = View.VISIBLE
                 return@setOnClickListener
             }
+            lifecycleScope.launch {
+                val trainerDao = AppDatabase.getInstance(applicationContext)
+                    .trainerDao() // Get the userDao instance
+                val emailExists = trainerDao.isEmailExists(emailEditText.text.toString()) > 0
+
+                if (emailExists) {
+                    errorTextView.text = "Email is already registered."
+                    errorTextView.visibility = View.VISIBLE
+                    return@launch
+                }
+
+                val hashedPassword = SecurityUtils.hashPassword(passwordEditText.text.toString())
+
+                val trainer = Trainer(
+                    firstName = firstNameEditText.text.toString(),
+                    lastName = lastNameEditText.text.toString(),
+                    email = emailEditText.text.toString(),
+                    password = hashedPassword, // Store hashed password
+                    bio = bioEditText.text.toString(),
+                    hourlyRate = hourlyRateEditText.text.toString().toDouble(),
+                    experienceLevel = experienceLevelSpinner.selectedItem.toString(),
+                    specialty = specialtySpinner.selectedItem.toString(),
+                    profilePicture = profileImageUri?.toString() ?: "",
+                    certificate = certificateUri?.toString() ?: "",
+                )
+                //if everything validates
+                //insert user into database
+                //and then login the user and redirect them to login
+                trainerDao.insertTrainer(trainer)
+                intent = Intent(this@TrainerRegisterActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
 
         }
     }
@@ -121,4 +162,5 @@ class TrainerRegisterActivity : AppCompatActivity() {
         val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
         return password.matches(passwordRegex.toRegex())
     }
+
 }

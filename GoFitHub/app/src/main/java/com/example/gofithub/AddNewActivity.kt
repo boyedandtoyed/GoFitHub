@@ -1,6 +1,7 @@
 package com.example.gofithub
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +12,34 @@ class AddNewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_add_new)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val buttonCycling = findViewById<Button>(R.id.btnCycling)
+        val buttonWeightlifting = findViewById<Button>(R.id.btnWeightlifting)
+        val buttonRunning = findViewById<Button>(R.id.btnRunning)
+        val buttonHIIT = findViewById<Button>(R.id.btnHIIT)
+        val buttonYoga = findViewById<Button>(R.id.btnYoga)
+
+        buttonCycling.setOnClickListener {
+            // Handle button click for Cycling
         }
+
+        buttonWeightlifting.setOnClickListener {
+            // Handle button click for Weightlifting
+        }
+
+        buttonRunning.setOnClickListener {
+            // Handle button click for Running
+        }
+
+        buttonHIIT.setOnClickListener {
+            // Handle button click for HIIT
+        }
+
+        buttonYoga.setOnClickListener {
+            // Handle button click for Yoga
+        }
+
+
+
     }
 }

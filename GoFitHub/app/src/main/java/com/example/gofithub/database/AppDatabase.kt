@@ -12,12 +12,12 @@ import com.example.gofithub.database.User
 import com.example.gofithub.database.UserActivity
 import com.example.gofithub.database.UserDao
 import com.example.gofithub.database.UserActivityDao
-import com.example.gofithub.database.Actvities
+import com.example.gofithub.database.Activity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [User::class, Trainer::class, UserActivity::class, Actvities::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Trainer::class, UserActivity::class, Activity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun trainerDao(): TrainerDao
@@ -54,12 +54,13 @@ abstract class AppDatabase : RoomDatabase() {
 
             suspend fun populateDatabase(dao: ActivitiesDao) {
                 // Insert six default activities
-                dao.insertActivity(null, activityName = "Running")
-                dao.insertActivity(null, activityName = "Walking")
-                dao.insertActivity(null, activityName = "Cycling")
-                dao.insertActivity(null, activityName = "Yoga")
-                dao.insertActivity(null, activityName = "High-Intensity Interval Training (HIIT)")
-                dao.insertActivity(null, activityName = "Weightlifting")
+                dao.insertActivity(Activity = Activity(activityName = "Running"))
+                dao.insertActivity(Activity = Activity(activityName = "Walking"))
+                dao.insertActivity(Activity = Activity(activityName = "Cycling"))
+                dao.insertActivity(Activity = Activity(activityName = "Yoga"))
+                dao.insertActivity(Activity = Activity(activityName = "High-Intensity Interval Training (HIIT)"))
+                dao.insertActivity(Activity = Activity(activityName = "Weightlifting"))
+                
             }
         }
     }

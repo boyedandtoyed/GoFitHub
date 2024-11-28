@@ -4,8 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "activities")
-data class Actvities(
+data class Activity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val userId: Int?= null,
+    val userId: Int?= -1,
     val activityName: String,
 )

@@ -41,7 +41,7 @@ class SubscribeViewActivity : AppCompatActivity() {
 
         // Disable subscribe button initially
         subscribeButton.isEnabled = false
-        subscribeButton.setBackgroundTintList(getColorStateList(R.color.gray))
+        subscribeButton.setBackgroundTintList(getColorStateList(R.color.grey))
 
         // Payment option selection logic
         paymentOptions.setOnCheckedChangeListener { _, checkedId ->

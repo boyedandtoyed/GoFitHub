@@ -16,6 +16,7 @@
     <string name="hint_email_address">Enter email address</string>
     <string name="hint_password">Enter password</string>
     <string name="hint_username">Enter username</string>
+    <string name="forgot_password_prompt"><u>Forgot password?</u></string>
     <string name="register_page_title">Welcome! Are you a ....</string>
     <string name="Trainer">Trainer</string>
     <string name="GeneralUser">General User</string>

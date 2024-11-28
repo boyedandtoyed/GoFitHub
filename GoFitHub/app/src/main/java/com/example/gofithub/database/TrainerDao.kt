@@ -25,4 +25,7 @@ interface TrainerDao {
     @Delete
     suspend fun deleteTrainer(trainer: Trainer)
 
+    @Query("UPDATE trainer_info SET password = :newPassword WHERE email = :email")
+    suspend fun updatePassword(email: String, newPassword: String)
+
 }

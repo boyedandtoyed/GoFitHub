@@ -5,6 +5,7 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import database.AppDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -62,14 +63,14 @@ class SubscribeViewActivity : AppCompatActivity() {
         // PayPal button logic
         paypalLoginButton.setOnClickListener {
             Toast.makeText(this, "Redirecting to PayPal...", Toast.LENGTH_SHORT).show()
-            subscribeUser()
+            subscribeUser(userId)
         }
 
         // Subscribe button logic
         subscribeButton.setOnClickListener {
             if (paymentOptions.checkedRadioButtonId == R.id.debit_credit_option) {
                 if (validateCreditCardDetails()) {
-                    subscribeUser()
+                    subscribeUser(userId)
                 } else {
                     Toast.makeText(this, "Please fill all credit card details.", Toast.LENGTH_SHORT).show()
                 }
@@ -99,13 +100,15 @@ class SubscribeViewActivity : AppCompatActivity() {
     }
 
     // Simulate user subscription
-    private fun subscribeUser() {
+    private fun subscribeUser(userId: Int) {
         CoroutineScope(Dispatchers.IO).launch {
-            val user = getUserById(userId)
+            val appDatabase = AppDatabase.getInstance(applicationContext)
+            val userDao = appDatabase.userDao()
+
+            val user = userDao.getUserById(userId)
+
             if (user != null) {
-                user.isSubscribed = true
-                // Simulate database update (e.g., save updated user entity)
-                // userDatabase.updateUser(user)
+                userDao.setSubscribedStatus(userId, true)
             }
 
             withContext(Dispatchers.Main) {
@@ -115,14 +118,6 @@ class SubscribeViewActivity : AppCompatActivity() {
         }
     }
 
-    // Simulate fetching user by ID
-    private suspend fun getUserById(userId: Int): User? {
-        // Replace with actual database call
-        return withContext(Dispatchers.IO) {
-            // Simulate user retrieval
-            User(userId, "Test User", false) // Example user object
-        }
-    }
 }
 
 // Mock user class

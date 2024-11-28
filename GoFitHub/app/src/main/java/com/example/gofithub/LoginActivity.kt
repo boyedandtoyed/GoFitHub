@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,10 +26,14 @@ class LoginActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val loginButton = findViewById<Button>(R.id.loginButton)
+        val forgotPasswordTextView = findViewById<TextView>(R.id.forgotPasswordTextView)
 
         // Open RegisterActivity if register button is clicked
         findViewById<Button>(R.id.loginRegisterButton).setOnClickListener {
             openRegisterActivity()
+        }
+        forgotPasswordTextView.setOnClickListener {
+            // Handle forgot password functionality here
         }
 
         // Login Button Click Listener
@@ -80,7 +85,6 @@ class LoginActivity : AppCompatActivity() {
                     // Trainer authenticated, navigate to TrainerDashboardActivity
                     val intent = Intent(this@LoginActivity, TrainerDashboardActivity::class.java)
                     // Pass necessary data (e.g., trainer ID) to the dashboard activity
-                    Log.d("Trainer ID going from login is----", trainer.id.toString())
                     intent.putExtra("trainerId", trainer.id)
                     startActivity(intent)
                     finish()

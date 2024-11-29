@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.gofithub.utils.SecurityUtils
-import database.AppDatabase
+import com.example.gofithub.database.AppDatabase
 import kotlinx.coroutines.launch
 
 class ForgotPasswordActivity : AppCompatActivity() {

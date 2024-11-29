@@ -1,6 +1,7 @@
-package database
+package com.example.gofithub.database
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -15,7 +16,8 @@ import com.example.gofithub.database.UserActivityDao
 import com.example.gofithub.database.Activity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 @Database(entities = [User::class, Trainer::class, UserActivity::class, Activity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
@@ -34,34 +36,37 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build()
+                )
+                    .addCallback(AppDatabaseCallback(context.applicationContext)) // Add callback to insert default activities
+                    .build()
                 INSTANCE = instance
                 instance
             }
         }
+    }
 
-        private class AppDatabaseCallback(
-            private val scope: CoroutineScope
-        ) : RoomDatabase.Callback() {
-            override fun onCreate(db: SupportSQLiteDatabase) {
-                super.onCreate(db)
-                INSTANCE?.let { database ->
-                    scope.launch {
-                        populateDatabase(database.activitiesDao())
-                    }
-                }
-            }
+    private class AppDatabaseCallback(
+        private val context: Context
+    ) : RoomDatabase.Callback() {
+        override fun onCreate(db: SupportSQLiteDatabase) {
+            super.onCreate(db)
+            val dao = AppDatabase.getInstance(context).activitiesDao()
 
-            suspend fun populateDatabase(dao: ActivitiesDao) {
-                // Insert six default activities
-                dao.insertActivity(Activity = Activity(activityName = "Running"))
-                dao.insertActivity(Activity = Activity(activityName = "Walking"))
-                dao.insertActivity(Activity = Activity(activityName = "Cycling"))
-                dao.insertActivity(Activity = Activity(activityName = "Yoga"))
-                dao.insertActivity(Activity = Activity(activityName = "High-Intensity Interval Training (HIIT)"))
-                dao.insertActivity(Activity = Activity(activityName = "Weightlifting"))
-                
+            // Insert predefined activities in a background thread
+            CoroutineScope(Dispatchers.IO).launch {
+                populateDatabase(dao)
             }
+        }
+
+        private suspend fun populateDatabase(dao: ActivitiesDao) {
+            // Insert six default activities into the database
+            dao.insertActivity(Activity(activityName = "Running", userId = -1))
+            dao.insertActivity(Activity(activityName = "Walking", userId = -1))
+            dao.insertActivity(Activity(activityName = "Cycling", userId = -1))
+            dao.insertActivity(Activity(activityName = "Yoga", userId = -1))
+            dao.insertActivity(Activity(activityName = "High-Intensity Interval Training (HIIT)", userId = -1))
+            dao.insertActivity(Activity(activityName = "Weightlifting", userId = -1))
+            Log.d("AppDatabaseCallback---", "Predefined activities inserted")
         }
     }
 }

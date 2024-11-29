@@ -17,7 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.gofithub.database.User
 import com.example.gofithub.database.UserDao
 import com.example.gofithub.utils.SecurityUtils
-import database.AppDatabase
+import com.example.gofithub.database.AppDatabase
 import kotlinx.coroutines.launch
 
 

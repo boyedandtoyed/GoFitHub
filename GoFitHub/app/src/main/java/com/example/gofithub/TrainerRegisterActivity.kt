@@ -17,7 +17,7 @@ import com.example.gofithub.UserRegisterActivity
 import com.example.gofithub.database.Trainer
 import com.example.gofithub.database.User
 import com.example.gofithub.utils.SecurityUtils
-import database.AppDatabase
+import com.example.gofithub.database.AppDatabase
 import kotlinx.coroutines.launch
 
 

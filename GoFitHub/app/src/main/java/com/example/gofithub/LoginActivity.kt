@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import database.AppDatabase
+import com.example.gofithub.database.AppDatabase
 import com.example.gofithub.database.UserDao
 import com.example.gofithub.database.TrainerDao // Import TrainerDao
 import com.example.gofithub.utils.SecurityUtils

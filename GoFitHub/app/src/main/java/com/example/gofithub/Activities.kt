@@ -14,12 +14,14 @@ class Activities : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_activities)
+        val userId = intent.getIntExtra("userId", -1)
 
-//        val newActivityButton = findViewById<Button>(R.id.newActivity)
-//        newActivityButton.setOnClickListener {
-//            val intent = Intent(this, NewActivity::class.java)
-//            startActivity(intent)
-//        }
+        val newActivityButton = findViewById<Button>(R.id.viewActivity)
+        newActivityButton.setOnClickListener {
+            val intent = Intent(this, ViewActivityPage::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
 //
 //        val recentActivityButton = findViewById<Button>(R.id.recentActivity)
 //        recentActivityButton.setOnClickListener {

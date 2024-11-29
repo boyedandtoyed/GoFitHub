@@ -10,7 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import database.AppDatabase
+import com.example.gofithub.database.AppDatabase
 
 class GuestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -95,7 +95,6 @@ class ViewActivityPage : AppCompatActivity() {
 
     // Function to create a button for an activity
     private fun createActivityButton(activityName: String): Button {
-        activityId =
         return Button(this).apply {
             text = activityName
 
@@ -120,7 +119,6 @@ class ViewActivityPage : AppCompatActivity() {
                 // Add userId and activity name to the intent
                 intent.putExtra("userId", userId)
                 intent.putExtra("activityName", activityName)
-                intent.putExtra("activityId", )
 
                 // Start the ActivityEnteringPage
                 startActivity(intent)

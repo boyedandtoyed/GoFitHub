@@ -22,12 +22,13 @@ class Activities : AppCompatActivity() {
             intent.putExtra("userId", userId)
             startActivity(intent)
         }
-//
-//        val recentActivityButton = findViewById<Button>(R.id.recentActivity)
-//        recentActivityButton.setOnClickListener {
-//            val intent = Intent(this, RecentActivity::class.java)
-//            startActivity(intent)
-//        }
+
+        val recentActivityButton = findViewById<Button>(R.id.recentActivity)
+        recentActivityButton.setOnClickListener {
+            val intent = Intent(this, RecentActivities::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
 //
 //        val goalsButton = findViewById<Button>(R.id.goals)
 //        goalsButton.setOnClickListener {

@@ -109,8 +109,22 @@ class ViewActivityPage : AppCompatActivity() {
             // Dynamically set the button color and text color
             setBackgroundColor(ContextCompat.getColor(context, R.color.button_color))
             setTextColor(ContextCompat.getColor(context, R.color.button_text_color))
+
+            // Set the click listener to navigate to the ActivityEnteringPage
+            setOnClickListener {
+                // Create an intent to redirect to ActivityEnteringPage
+                val intent = Intent(this@ViewActivityPage, ActivityEnteringPage::class.java)
+
+                // Add userId and activity name to the intent
+                intent.putExtra("userId", userId)
+                intent.putExtra("activityName", activityName)
+
+                // Start the ActivityEnteringPage
+                startActivity(intent)
+            }
         }
     }
+
 
 
     // Function to save activity to the database

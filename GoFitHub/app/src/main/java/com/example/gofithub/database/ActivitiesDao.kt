@@ -12,6 +12,9 @@ interface ActivitiesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertActivity(activity: Activity): Long
 
+    @Query("SELECT * FROM activities WHERE activityName = :activityName")
+    suspend fun getActivityByName(activityName: String): Activity?
+
     //get all activities where userId is -1
     @Query("SELECT * FROM activities WHERE userId = -1")
     suspend fun getActivities(): List<Activity>

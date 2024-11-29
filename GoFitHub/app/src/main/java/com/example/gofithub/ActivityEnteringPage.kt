@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.time.Duration
 
 class ActivityEnteringPage : AppCompatActivity() {
 
@@ -28,30 +29,37 @@ class ActivityEnteringPage : AppCompatActivity() {
 
         val tvTitle = findViewById<TextView>(R.id.tvTitle)
         val etCaloriesBurned = findViewById<EditText>(R.id.etCaloriesBurned)
-        val etAsanas = findViewById<EditText>(R.id.etPace)
+        val heartRate = findViewById<EditText>(R.id.heart_rate)
         val etDistance = findViewById<EditText>(R.id.etDistance)
         val etTime = findViewById<EditText>(R.id.etTime)
         val etSpeed = findViewById<EditText>(R.id.etSpeed)
-        val btnSubmitRunning = findViewById<Button>(R.id.btnSubmitRunning)
+        val btnStartActivity = findViewById<Button>(R.id.saveFinishedActivity)
 
         // Retrieve data from intent
         val activityName = intent.getStringExtra("activityName") ?: "Unknown Activity"
         val userId = intent.getIntExtra("userId", -1)
+        etTime.hint = "Time you did the ${activityName}(required) in mm:ss"
         tvTitle.text = activityName
 
-        btnSubmitRunning.setOnClickListener {
+        btnStartActivity.setOnClickListener {
             val calories = etCaloriesBurned.text.toString().toIntOrNull()
-            val pace = etAsanas.text.toString().toIntOrNull()
+            val heartRate = heartRate.text.toString().toIntOrNull()
             val distance = etDistance.text.toString().toIntOrNull()
             val time = etTime.text.toString()
             val speed = etSpeed.text.toString().toIntOrNull()
 
-            if (calories == null || pace == null || distance == null || speed == null || time.isEmpty()) {
-                Toast.makeText(this, "Please fill out all fields correctly!", Toast.LENGTH_SHORT).show()
+            if (calories == null || heartRate == null || time.isEmpty() ) {
+                Toast.makeText(this, "Please fill out required fields correctly!", Toast.LENGTH_SHORT).show()
             } else {
                 val currentDate = getCurrentDate()
                 saveActivityData(
-                    userId, currentDate, activityName, calories, distance, time, speed
+                    userId=userId,
+                    activityCompletedDate = currentDate,
+                    activityName = activityName,
+                    caloriesBurned = calories,
+                    distance = distance
+                    ,time=time,
+                    speed=speed
                 )
             }
         }
@@ -59,21 +67,18 @@ class ActivityEnteringPage : AppCompatActivity() {
 
     private fun saveActivityData(
         userId: Int,
-        activityStartDate: String,
+        activityCompletedDate: String,
         activityName: String,
         caloriesBurned: Int,
-        distance: Int,
+        distance: Int?=null,
         time: String,
-        speed: Int
+        speed: Int?=null
     ) {
         lifecycleScope.launch(Dispatchers.IO) {
             val userActivity = UserActivity(
                 userId = userId,
-                activityStartDate = activityStartDate,
-                activityCompletedDate = null,
-                activityId = 0,
+                activityCompletedDate = activityCompletedDate,
                 activityName = activityName,
-                activityCompleted = false,
                 duration = time.toInt(),
                 heartRate = 0,
                 speed = speed,

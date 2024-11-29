@@ -7,16 +7,13 @@ import androidx.room.PrimaryKey
 data class UserActivity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val userId: Int,
-    val activityStartDate: String,
-    val activityCompletedDate: String? = null,
-    val activityId: Int,
+    val activityCompletedDate: String,
     val activityName: String,
 
-    val activityCompleted: Boolean,
     val duration: Int,
     val heartRate: Int,
-    val speed: Int,
-    val distance: Int,
+    val speed: Int?=null,
+    val distance: Int?=null,
     val caloriesBurned: Int,
 
 )

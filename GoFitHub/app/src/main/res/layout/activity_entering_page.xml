@@ -24,7 +24,7 @@
         android:id="@+id/etCaloriesBurned"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Calories Burned"
+        android:hint="Calories Burned(required)"
         android:inputType="numberDecimal"
         android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -33,10 +33,10 @@
         android:layout_marginTop="16dp" />
 
     <EditText
-        android:id="@+id/etPace"
+        android:id="@+id/heart_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="HeartBeat(no/min)"
+        android:hint="HeartBeat(num/min)(required)"
         android:inputType="numberDecimal"
         android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/etCaloriesBurned"
@@ -51,17 +51,18 @@
         android:hint="Distance (miles)"
         android:inputType="numberDecimal"
         android:padding="12dp"
-        app:layout_constraintTop_toBottomOf="@id/etPace"
+        app:layout_constraintTop_toBottomOf="@id/heart_rate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
+
 
     <EditText
         android:id="@+id/etTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Time (hh:mm:ss)"
-        android:inputType="time"
+        android:hint="Time you did the Activity(required) in mm:ss"
+        android:inputType="numberDecimal"
         android:padding="12dp"
         app:layout_constraintTop_toBottomOf="@id/etDistance"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,11 +82,11 @@
         android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/btnSubmitRunning"
+        android:id="@+id/saveFinishedActivity"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Save Activity"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="Save Finished Activity"
+        android:backgroundTint="@color/button_color"
         android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/etSpeed"
         app:layout_constraintStart_toStartOf="parent"

@@ -35,7 +35,7 @@ class ViewActivityPage : AppCompatActivity() {
 
         // Retrieve the user ID from the intent
         userId = intent.getIntExtra("userId", -1)
-        Log.d("ViewActivityPage--", "User ID: $userId")
+
 
         // Initialize views
         predefinedActivitiesLayout = findViewById(R.id.preDefinedActivities)
@@ -95,8 +95,10 @@ class ViewActivityPage : AppCompatActivity() {
 
     // Function to create a button for an activity
     private fun createActivityButton(activityName: String): Button {
+        activityId =
         return Button(this).apply {
             text = activityName
+
 
             // Set layout parameters
             layoutParams = LinearLayout.LayoutParams(
@@ -118,6 +120,7 @@ class ViewActivityPage : AppCompatActivity() {
                 // Add userId and activity name to the intent
                 intent.putExtra("userId", userId)
                 intent.putExtra("activityName", activityName)
+                intent.putExtra("activityId", )
 
                 // Start the ActivityEnteringPage
                 startActivity(intent)

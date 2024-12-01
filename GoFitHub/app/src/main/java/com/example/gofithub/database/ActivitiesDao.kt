@@ -15,9 +15,9 @@ interface ActivitiesDao {
     @Query("SELECT * FROM activities WHERE activityName = :activityName")
     suspend fun getActivityByName(activityName: String): Activity?
 
-    //get all activities where userId is -1
-    @Query("SELECT * FROM activities WHERE userId = -1")
-    suspend fun getActivities(): List<Activity>
+    //get all activities except userId
+    @Query("SELECT * FROM activities WHERE userId != :userId")
+    suspend fun getActivities(userId: Int): List<Activity>
 
     //get all activities where userId equals to passed userId
     @Query("SELECT * FROM activities WHERE userId = :userId")

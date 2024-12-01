@@ -38,7 +38,7 @@ class ViewActivityPage : AppCompatActivity() {
 
 
         // Initialize views
-        predefinedActivitiesLayout = findViewById(R.id.preDefinedActivities)
+        predefinedActivitiesLayout = findViewById(R.id.otherActivitiesLayout)
         userActivitiesLayout = findViewById(R.id.currentUserAddedActivities)
         addActivityButton = findViewById(R.id.addActivities)
         newActivityEditText = findViewById(R.id.newActivityEditText)
@@ -69,7 +69,7 @@ class ViewActivityPage : AppCompatActivity() {
         lifecycleScope.launch {
             // Fetch predefined activities (where userId = -1)
             val predefinedActivities = withContext(Dispatchers.IO) {
-                activitiesDao.getActivities()  // Fetch activities with userId = -1
+                activitiesDao.getActivities(userId)  // Fetch activities with userId
             }
 
             // Fetch user-specific activities
@@ -80,8 +80,10 @@ class ViewActivityPage : AppCompatActivity() {
             // Display predefined activities
             predefinedActivitiesLayout.removeAllViews()
             for (activity in predefinedActivities) {
+                if (activity.userId != -1) {
                     val button = createActivityButton(activity.activityName)
                     predefinedActivitiesLayout.addView(button)
+                }
             }
 
             // Display user-defined activities

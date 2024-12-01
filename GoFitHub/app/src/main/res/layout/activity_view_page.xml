@@ -15,17 +15,17 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/preDefinedActivitiesText"
+            android:id="@+id/otherActivitiesText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center"
-            android:text="Predefined Activities:"
+            android:text="Other Activities:"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/preDefinedActivities"
+            android:id="@+id/otherActivitiesLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

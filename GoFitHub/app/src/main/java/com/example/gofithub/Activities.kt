@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
+import com.example.gofithub.ProgressReportView
 
 class Activities : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +37,11 @@ class Activities : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 //
-//        val myProgressButton = findViewById<Button>(R.id.myProgress)
-//        myProgressButton.setOnClickListener {
-//            val intent = Intent(this, MyProgress::class.java)
-//            startActivity(intent)
-//        }
+        val myProgressButton = findViewById<Button>(R.id.myProgress)
+        myProgressButton.setOnClickListener {
+            val intent = Intent(this, ProgressReportView::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
     }
 }

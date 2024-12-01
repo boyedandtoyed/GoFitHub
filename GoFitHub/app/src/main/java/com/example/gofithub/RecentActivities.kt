@@ -18,7 +18,6 @@ class RecentActivities : AppCompatActivity() {
     private lateinit var userActivityDao: UserActivityDao
     private lateinit var recentActivitiesLayout: LinearLayout
     private lateinit var lastSevenActivities: List<UserActivity>
-    private lateinit var userActivities: List<UserActivity>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,24 +28,21 @@ class RecentActivities : AppCompatActivity() {
         recentActivitiesLayout = findViewById<LinearLayout>(R.id.recentActivities)
         userActivityDao = AppDatabase.getInstance(this).userActivityDao()
 
-        fetchRecentActivities(userId)
-        displayRecentActivities(lastSevenActivities, recentActivitiesLayout)
+
+        displayRecentActivities(userId)
 
 
     }
-    private fun fetchRecentActivities(userId: Int) {
 
+    private fun displayRecentActivities(userId: Int) {
         lifecycleScope.launch(Dispatchers.IO) {
             lastSevenActivities = userActivityDao.getLastSevenCompletedUserActivitiesSortedByTime(userId)
-        }
 
-    }
-    private fun displayRecentActivities(lastSevenActivities: List<UserActivity>, recentActivitiesLayout: LinearLayout) {
-        recentActivitiesLayout.removeAllViews()
-        for (activity in lastSevenActivities) {
-            val activityView = createActivityView(activity)
-            recentActivitiesLayout.addView(activityView)
-
+            recentActivitiesLayout.removeAllViews()
+            for (activity in lastSevenActivities) {
+                val activityView = createActivityView(activity)
+                recentActivitiesLayout.addView(activityView)
+            }
         }
     }
 
@@ -61,35 +57,35 @@ class RecentActivities : AppCompatActivity() {
         activityView.setPadding(16, 16, 16, 16)
 
         val activityNameView = TextView(this)
-        activityNameView.text = activity.activityName
+        activityNameView.text = "Activity Name: " + activity.activityName
         activityView.addView(activityNameView)
 
         val activityDateView = TextView(this)
-        activityDateView.text = activity.activityCompletedDate
+        activityDateView.text = "Completed Date: " + activity.activityCompletedDate
         activityView.addView(activityDateView)
 
         val activityDurationView = TextView(this)
-        activityDurationView.text = activity.duration.toString()
+        activityDurationView.text = "Duration: " + activity.duration.toString()
         activityView.addView(activityDurationView)
 
         val activityCaloriesView = TextView(this)
-        activityCaloriesView.text = activity.caloriesBurned.toString()
+        activityCaloriesView.text = "Calories Burned: " + activity.caloriesBurned.toString()
         activityView.addView(activityCaloriesView)
 
         if (activity.distance != null) {
             val activityDistanceView = TextView(this)
-            activityDistanceView.text = activity.distance.toString()
+            activityDistanceView.text = "Distance Travelled: " + activity.distance.toString()
             activityView.addView(activityDistanceView)
         }
 
         if (activity.speed != null) {
             val activitySpeedView = TextView(this)
-            activitySpeedView.text = activity.speed.toString()
+            activitySpeedView.text = "Average Speed: " + activity.speed.toString()
             activityView.addView(activitySpeedView)
         }
 
         val activityHeartRateView = TextView(this)
-        activityHeartRateView.text = activity.heartRate.toString()
+        activityHeartRateView.text = "Average Heart Rate: " + activity.heartRate.toString()
         activityView.addView(activityHeartRateView)
 
         return activityView

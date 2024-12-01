@@ -18,6 +18,9 @@
         android:theme="@style/Theme.GoFitHub"
         tools:targetApi="31">
         <activity
+            android:name=".ProgressReportView"
+            android:exported="false" />
+        <activity
             android:name=".RecentActivities"
             android:exported="false" />
         <activity

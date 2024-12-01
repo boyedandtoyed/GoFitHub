@@ -1,0 +1,91 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Incomplete Goals Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Incomplete Goals"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:id="@+id/incompleteGoalsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp" />
+
+        <!-- Button to Mark Goals as Completed -->
+        <Button
+            android:id="@+id/markAsCompletedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mark Selected Goals as Completed"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/button_color"
+            android:textColor="@color/white"/>
+
+        <!-- Last 10 Completed Goals Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last 10 Completed Goals"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:id="@+id/completedGoalsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp" />
+
+        <!-- Add New Goal Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Goal"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <EditText
+            android:id="@+id/goalTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Goal Text" />
+
+        <EditText
+            android:id="@+id/durationInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Duration (mins)"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/caloriesTargetInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Calories Target"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/addGoalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Goal"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/button_color"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</ScrollView>

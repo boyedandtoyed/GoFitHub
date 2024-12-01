@@ -5,10 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.button.MaterialButton
 import com.example.gofithub.ProgressReportView
+import com.example.gofithub.GoalsViewPage
+
 
 class Activities : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,13 +29,14 @@ class Activities : AppCompatActivity() {
             intent.putExtra("userId", userId)
             startActivity(intent)
         }
-//
-//        val goalsButton = findViewById<Button>(R.id.goals)
-//        goalsButton.setOnClickListener {
-//            val intent = Intent(this, Goals::class.java)
-//            startActivity(intent)
-//        }
-//
+
+        val goalsButton = findViewById<Button>(R.id.goals)
+        goalsButton.setOnClickListener {
+            val intent = Intent(this, GoalsViewPage::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
+
         val myProgressButton = findViewById<Button>(R.id.myProgress)
         myProgressButton.setOnClickListener {
             val intent = Intent(this, ProgressReportView::class.java)

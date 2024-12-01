@@ -14,17 +14,20 @@ import com.example.gofithub.database.UserActivity
 import com.example.gofithub.database.UserDao
 import com.example.gofithub.database.UserActivityDao
 import com.example.gofithub.database.Activity
+import com.example.gofithub.database.Goals
+import com.example.gofithub.database.GoalsDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-@Database(entities = [User::class, Trainer::class, UserActivity::class, Activity::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Trainer::class, UserActivity::class, Activity::class, Goals::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun trainerDao(): TrainerDao
     abstract fun userActivityDao(): UserActivityDao
     abstract fun activitiesDao(): ActivitiesDao
+    abstract fun goalsDao(): GoalsDao
 
     companion object {
         @Volatile

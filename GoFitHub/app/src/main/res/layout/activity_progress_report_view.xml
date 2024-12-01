@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProgressReportView">
+    tools:context=".ProgressReportView"
+    android:background="#FFFFFF"
+    android:padding="20dp"
+    >
 
-    <!-- Calories Bar Chart -->
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barChartCalories"
-        android:layout_width="0dp"
+    <!-- Linear Layout inside the ScrollView to hold the charts -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:padding="20dp"
+        android:background="#FFFFFF">
 
-    <!-- Activities Line Chart -->
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/lineChartActivities"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/barChartCalories"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Calories Bar Chart -->
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChartCalories"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:textColor="#000000" /> <!-- Set text color to black -->
 
-    <!-- Duration Bar Chart -->
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/barChartDuration"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lineChartActivities"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Activities Bar Chart -->
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChartActivities"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:textColor="#000000" /> <!-- Set text color to black -->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Duration Bar Chart -->
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChartDuration"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+
+            android:textColor="#000000" /> <!-- Set text color to black -->
+
+    </LinearLayout>
+
+</ScrollView>

@@ -13,15 +13,17 @@ import androidx.lifecycle.lifecycleScope
 import com.example.gofithub.UserDashboardActivity
 import com.example.gofithub.database.AppDatabase
 import kotlinx.coroutines.launch
+import android.content.Intent
+import com.example.gofithub.R
+import com.example.gofithub.TraineesViewPage
 
 class TrainerDashboardActivity : AppCompatActivity() {
 
     private lateinit var helloTextView: TextView
     private lateinit var traineesButton: Button
     private lateinit var createPlansButton: Button
-    private lateinit var manageSessionsButton: Button
     private lateinit var checkRosterButton: Button
-    private lateinit var homeButton: Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,18 +34,16 @@ class TrainerDashboardActivity : AppCompatActivity() {
         helloTextView = findViewById(R.id.textViewHelloTrainer)
         traineesButton = findViewById(R.id.traineesListButton)
         createPlansButton = findViewById(R.id.createWorkoutPlansButton)
-        manageSessionsButton = findViewById(R.id.manageSessionsButton)
         checkRosterButton = findViewById(R.id.checkRosterButton)
-        homeButton = findViewById(R.id.homeButton)
 
 
         val trainerDao = AppDatabase.getInstance(this).trainerDao()
         val id = intent.getIntExtra("trainerId", -1)
+        Log.d("Trainer ID is----", id.toString())
 
         lifecycleScope.launch {
             try {
-                // Retrieve user from the database
-                Log.d("Trainer ID coming in dashboard is----", id.toString())
+
                 val trainer = trainerDao.getTrainerById(id)
                 if (trainer != null) {
                     Log.d("Trainer Name is----", trainer.toString())
@@ -54,6 +54,10 @@ class TrainerDashboardActivity : AppCompatActivity() {
                     //set onlick listeners for buttons
                     traineesButton.setOnClickListener {
                         // Handle trainees button click
+                        val intent = Intent(this@TrainerDashboardActivity, TraineesViewPage::class.java)
+                        intent.putExtra("trainerId", id)
+                        startActivity(intent)
+
                         Toast.makeText(this@TrainerDashboardActivity, "Trainees button clicked", Toast.LENGTH_SHORT).show()
                     }
 
@@ -62,20 +66,12 @@ class TrainerDashboardActivity : AppCompatActivity() {
                         Toast.makeText(this@TrainerDashboardActivity, "Create plans button clicked", Toast.LENGTH_SHORT).show()
                     }
 
-                    manageSessionsButton.setOnClickListener {
-                        // Handle manage sessions button click
-                        Toast.makeText(this@TrainerDashboardActivity, "Manage sessions button clicked", Toast.LENGTH_SHORT).show()
-                    }
-
                     checkRosterButton.setOnClickListener {
                         // Handle check roster button click
                         Toast.makeText(this@TrainerDashboardActivity, "Check roster button clicked", Toast.LENGTH_SHORT).show()
                     }
 
-                    homeButton.setOnClickListener {
-                        // Handle home button click
-                        Toast.makeText(this@TrainerDashboardActivity, "Home button clicked", Toast.LENGTH_SHORT).show()
-                    }
+
 
 
                 } else {

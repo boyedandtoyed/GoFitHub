@@ -18,6 +18,9 @@
         android:theme="@style/Theme.GoFitHub"
         tools:targetApi="31">
         <activity
+            android:name=".TraineesViewPage"
+            android:exported="false" />
+        <activity
             android:name=".TrainerPaymentPage"
             android:exported="false" />
         <activity

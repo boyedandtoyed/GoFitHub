@@ -28,4 +28,13 @@ interface TrainerDao {
     @Query("UPDATE trainer_info SET password = :newPassword WHERE email = :email")
     suspend fun updatePassword(email: String, newPassword: String)
 
+    @Query("UPDATE trainer_info SET isAvailable = :isAvailable WHERE id = :trainerId")
+    suspend fun updateAvailability(trainerId: Int, isAvailable: Boolean)
+
+    @Query("UPDATE trainer_info SET ratingOutofFive = :rating, numberOfRatings = :numberOfRatings WHERE id = :trainerId")
+    suspend fun updateRating(trainerId: Int, rating: Double, numberOfRatings: Int)
+
+    @Query("SELECT * FROM trainer_info WHERE isAvailable = 1")
+    suspend fun getAvailableTrainers(): List<Trainer>
+
 }

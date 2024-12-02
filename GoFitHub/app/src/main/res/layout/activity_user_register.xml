@@ -159,29 +159,6 @@
             android:focusable="true"
             android:focusableInTouchMode="true"/>
 
-        <!-- Goals Section -->
-        <TextView
-            android:id="@+id/goalsText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Goals"
-            android:textSize="20sp" />
-
-        <!-- Goal Type Spinner Label and Input -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Your Goal"
-            android:textSize="16sp"
-            android:textColor="@android:color/black" />
-        <Spinner
-            android:id="@+id/goalTypeSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:prompt="@string/select_goal_prompt"
-            android:padding="8dp" />
 
         <!-- Goal Explanation Label and Input -->
         <TextView
@@ -197,6 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:gravity="center"
             android:padding="8dp"
             android:hint="..."
             android:textColorHint="@color/hint_text_color"

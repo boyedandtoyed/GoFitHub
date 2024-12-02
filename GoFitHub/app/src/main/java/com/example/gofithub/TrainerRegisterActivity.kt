@@ -42,15 +42,7 @@ class TrainerRegisterActivity : AppCompatActivity() {
         }
 
         // Set up the specialty Spinner
-        val specialtySpinner = findViewById<Spinner>(R.id.specialtySpinner)
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.specialties,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            specialtySpinner.adapter = adapter
-        }
+        val specialtyText = findViewById<EditText>(R.id.specialityText)
 
         // Get references to EditTexts and other components
         val firstNameEditText = findViewById<EditText>(R.id.firstNameEditText)
@@ -60,7 +52,6 @@ class TrainerRegisterActivity : AppCompatActivity() {
         val confirmPasswordEditText = findViewById<EditText>(R.id.confirmPasswordEditText)
         val errorTextView = findViewById<TextView>(R.id.errorTextView)
         val registerButton = findViewById<Button>(R.id.registerButton)
-        val bioEditText = findViewById<EditText>(R.id.bioEditText)
         val hourlyRateEditText = findViewById<EditText>(R.id.hourlyRateEditText)
 
         val uploadProfilePictureButton = findViewById<Button>(R.id.buttonUploadPicture)
@@ -131,10 +122,10 @@ class TrainerRegisterActivity : AppCompatActivity() {
                     lastName = lastNameEditText.text.toString(),
                     email = emailEditText.text.toString(),
                     password = hashedPassword, // Store hashed password
-                    bio = bioEditText.text.toString(),
+                    bio = "",
                     hourlyRate = hourlyRateEditText.text.toString().toDouble(),
                     experienceLevel = experienceLevelSpinner.selectedItem.toString(),
-                    specialty = specialtySpinner.selectedItem.toString(),
+                    specialty = specialtyText.text.toString(),
                     profilePicture = profileImageUri?.toString() ?: "",
                     certificate = certificateUri?.toString() ?: "",
                 )

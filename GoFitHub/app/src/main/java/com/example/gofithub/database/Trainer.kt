@@ -16,5 +16,8 @@ data class Trainer(
     val bio: String,
     val hourlyRate: Double,
     val profilePicture: String? = null, // Store URI as a String
+    val isAvailable: Boolean = true,
+    val ratingOutofFive: Double = 0.0,
+    val numberOfRatings: Int = 0
 
 )

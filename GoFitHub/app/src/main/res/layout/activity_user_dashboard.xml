@@ -106,7 +106,7 @@
             app:cornerRadius="0dp" />
 
         <TextView
-            android:id="@+id/progressText"
+            android:id="@+id/recentGoalsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="You need to take 5000 steps today to reach your goal!"

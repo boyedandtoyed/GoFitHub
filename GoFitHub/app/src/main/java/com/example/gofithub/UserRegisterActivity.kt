@@ -29,16 +29,6 @@ class UserRegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_register)
 
-        // Set up the goal type Spinner
-        val goalTypeSpinner = findViewById<Spinner>(R.id.goalTypeSpinner)
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.goal_types,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            goalTypeSpinner.adapter = adapter
-        }
 
         // Get references to EditTexts
         val firstNameEditText = findViewById<EditText>(R.id.firstNameEditText)
@@ -49,7 +39,6 @@ class UserRegisterActivity : AppCompatActivity() {
         val dobEditButton = findViewById<Button>(R.id.dobEditText)
         val weightEditText = findViewById<EditText>(R.id.weightEditText)
         val heightEditText = findViewById<EditText>(R.id.heightEditText)
-        val bioEditText = findViewById<EditText>(R.id.goalExplanationEditText)
         val errorTextView = findViewById<TextView>(R.id.errorTextView)
         val registerButton = findViewById<Button>(R.id.registerButton)
 
@@ -126,9 +115,8 @@ class UserRegisterActivity : AppCompatActivity() {
                     password = hashedPassword, // Store hashed password
                     dob = dobEditButton.text.toString(),
                     weight = weightEditText.text.toString().toDouble(),
+                    bio="",
                     height = heightEditText.text.toString().toDouble(),
-                    goalType = goalTypeSpinner.selectedItem.toString(),
-                    goalExplanation = bioEditText.text.toString(),
                     profilePicture = profileImageUri?.toString() ?: "",
                     isSubscribed = false // Default value
                 )

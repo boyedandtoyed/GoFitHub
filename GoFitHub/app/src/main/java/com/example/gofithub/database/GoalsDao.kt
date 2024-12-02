@@ -22,4 +22,8 @@ interface GoalsDao {
     // Get the last 10 completed goals
     @Query("SELECT * FROM user_goals WHERE userId = :userId AND goalCompleted = 1 ORDER BY goalCompletedDate DESC LIMIT 10")
     suspend fun getLast10CompletedGoals(userId: Int): List<Goals>
+
+    //get last added goal from a userId
+    @Query("SELECT * FROM user_goals WHERE userId = :userId ORDER BY id DESC LIMIT 1")
+    suspend fun getLastAddedGoal(userId: Int): Goals?
 }

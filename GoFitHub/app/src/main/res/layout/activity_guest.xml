@@ -32,28 +32,9 @@
             android:textSize="20sp"
             android:textStyle="bold|italic" />
 
-        <Button
-            android:id="@+id/subscribeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/button_color"
-            android:text="Subscribe to get full benefits."
-            android:textColor="@android:color/white"
-            app:cornerRadius="10dp" />
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/imageView2"-->
-        <!--            android:layout_width="50dp"-->
-        <!--            android:layout_height="50dp"-->
-        <!--            android:layout_margin="16dp"-->
-        <!--            android:adjustViewBounds="false"-->
-        <!--            android:background="@drawable/circle_background"-->
-        <!--            android:clipToOutline="true"-->
-        <!--            android:cropToPadding="false"-->
-        <!--            android:scaleType="centerCrop"-->
-        <!--            tools:srcCompat="@tools:sample/avatars" />-->
+
+
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="wrap_content"
@@ -90,40 +71,9 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/recentPlansSection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_panel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintVertical_bias="0.112">
 
-        <!-- Recent Plan -->
-        <TextView
-            android:id="@+id/recentPlansTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Recent Plans"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/progressText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="You need to take 5000 steps today to reach your goal!"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
 
-    </LinearLayout>
-
-    <!--4 buttons activities, friends, training, plans-->
     <TableLayout
         android:id="@+id/navigation_panel"
         android:layout_width="match_parent"
@@ -131,7 +81,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recentPlansSection">
+        app:layout_constraintTop_toBottomOf="@+id/header">
 
         <TableRow
             android:layout_width="match_parent"
@@ -165,28 +115,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/trainingButton"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_color"
-                android:maxHeight="100dp"
-                android:text="Training"
-                android:textColor="@android:color/white"
-                app:cornerRadius="0dp" />
 
-            <Button
-                android:id="@+id/plansButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_color"
-                android:text="Plans"
-                android:textColor="@android:color/white"
-                app:cornerRadius="0dp" />
+
+
         </TableRow>
 
     </TableLayout>

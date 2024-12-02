@@ -33,7 +33,9 @@ class LoginActivity : AppCompatActivity() {
             openRegisterActivity()
         }
         forgotPasswordTextView.setOnClickListener {
-            // Handle forgot password functionality here
+            intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         // Login Button Click Listener
@@ -84,7 +86,6 @@ class LoginActivity : AppCompatActivity() {
                 if (SecurityUtils.verifyPassword(password, trainer.password)) {
                     // Trainer authenticated, navigate to TrainerDashboardActivity
                     val intent = Intent(this@LoginActivity, TrainerDashboardActivity::class.java)
-                    // Pass necessary data (e.g., trainer ID) to the dashboard activity
                     intent.putExtra("trainerId", trainer.id)
                     startActivity(intent)
                     finish()

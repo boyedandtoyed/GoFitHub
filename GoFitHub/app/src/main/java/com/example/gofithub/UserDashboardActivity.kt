@@ -29,7 +29,16 @@ class UserDashboardActivity : AppCompatActivity() {
         val subscribeButton = findViewById<Button>(R.id.subscribeButton)
         val helloTextView = findViewById<TextView>(R.id.textViewHello)
         val activitiesButton = findViewById<Button>(R.id.activitiesButton)
+        val friendsButton = findViewById<Button>(R.id.friendsButton)
+        val trainingButton = findViewById<Button>(R.id.trainingButton)
+        val plansButton = findViewById<Button>(R.id.plansButton)
+        val recentPlanButton= findViewById<Button>(R.id.recent_plans)
+        val recentPlansSection = findViewById<LinearLayout>(R.id.recentPlansSection)
+        val recentGoalsText = findViewById<TextView>(R.id.recentGoalsText)
+
         val userDao = AppDatabase.getInstance(this).userDao()
+        val goalsDao = AppDatabase.getInstance(this).goalsDao()
+
         val id = intent.getIntExtra("userId", -1)
         subscribeButton.visibility = View.GONE
 
@@ -43,7 +52,9 @@ class UserDashboardActivity : AppCompatActivity() {
             try {
                 // Retrieve user from the database
                 val user = userDao.getUserById(id)
+
                 if (user != null) {
+                    val goals = goalsDao.getLastAddedGoal(user.id)
                     val name = user.firstName
                     helloTextView.text = "Hello, $name!"
                     user.isSubscribed?.let {
@@ -61,6 +72,20 @@ class UserDashboardActivity : AppCompatActivity() {
                                 startActivity(intent)
                             }
                         }
+                    }
+
+
+                    recentGoalsText.text = "Your most recent goals is to: ${goals?.goalText}"
+                    recentPlanButton.setOnClickListener {
+                        val intent = Intent(this@UserDashboardActivity, GoalsViewPage::class.java)
+                        intent.putExtra("userId", id)
+                        startActivity(intent)
+                    }
+
+                    trainingButton.setOnClickListener {
+                        val intent = Intent(this@UserDashboardActivity, TrainersPage::class.java)
+                        intent.putExtra("userId", id)
+                        startActivity(intent)
                     }
                 } else {
                     helloTextView.text = "Unknown User"
@@ -82,6 +107,11 @@ class UserDashboardActivity : AppCompatActivity() {
                 // Check if there's an activity that can handle this intent
                 startActivity(intent)  // Start the activity to open the URL
             }
+//            friendsButton.setOnClickListener {
+//                val intent = Intent(this@UserDashboardActivity, FriendsViewPage::class.java)
+//                intent.putExtra("userId", id)
+//                startActivity(intent)
+//            }
         }
 
 

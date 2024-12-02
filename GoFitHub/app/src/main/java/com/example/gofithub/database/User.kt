@@ -13,8 +13,7 @@ data class User(
     val dob: String,
     val weight: Double,
     val height: Double,
-    val goalType: String,
-    val goalExplanation: String? = null,
+    val bio: String? = null,
     val profilePicture: String? = null, // Store URI as a String
     val isSubscribed: Boolean? = false
 )

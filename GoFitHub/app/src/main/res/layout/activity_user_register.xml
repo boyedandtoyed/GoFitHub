@@ -146,18 +146,18 @@
             android:layout_height="wrap_content"
             android:text="Date of Birth"
             android:textSize="16sp"
+            android:layout_marginTop= "10dp"
             android:textColor="@android:color/black" />
-        <Button
+        <EditText
             android:id="@+id/dobEditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/button_color"
-            android:textColor="@color/button_text_color"
-            android:text="MM/DD/YYYY"
+            android:layout_marginBottom="10dp"
             android:padding="8dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"/>
+            android:hint="MM/DD/YYYY"
+            android:textColorHint="@color/hint_text_color"
+            android:background="@drawable/rounded_corners"
+            android:inputType="textMultiLine"/>
 
 
         <!-- Goal Explanation Label and Input -->
@@ -166,11 +166,12 @@
             android:layout_height="wrap_content"
             android:text="Briefly Explain Your Goals"
             android:textSize="16sp"
+            android:layout_marginTop="10dp"
             android:textColor="@android:color/black" />
         <EditText
             android:lines="3"
             android:textColor="@color/text_color"
-            android:id="@+id/goalExplanationEditText"
+            android:id="@+id/bioEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

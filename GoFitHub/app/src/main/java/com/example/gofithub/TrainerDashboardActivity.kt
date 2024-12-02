@@ -46,6 +46,7 @@ class TrainerDashboardActivity : AppCompatActivity() {
                 Log.d("Trainer ID coming in dashboard is----", id.toString())
                 val trainer = trainerDao.getTrainerById(id)
                 if (trainer != null) {
+                    Log.d("Trainer Name is----", trainer.toString())
                     val name = trainer.firstName
                     Log.d("Trainer Name is----", name)
                     helloTextView.text = "Hello, $name!"

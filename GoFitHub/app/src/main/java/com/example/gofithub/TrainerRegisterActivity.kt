@@ -104,6 +104,13 @@ class TrainerRegisterActivity : AppCompatActivity() {
                 errorTextView.visibility = View.VISIBLE
                 return@setOnClickListener
             }
+
+            if (!isValidHourlyRate(hourlyRateEditText.text.toString())) {
+                errorTextView.text = "Hourly rate must be a number between 1 and 150."
+                errorTextView.visibility = View.VISIBLE
+                return@setOnClickListener
+            }
+
             lifecycleScope.launch {
                 val trainerDao = AppDatabase.getInstance(applicationContext)
                     .trainerDao() // Get the userDao instance
@@ -152,6 +159,20 @@ class TrainerRegisterActivity : AppCompatActivity() {
     private fun isValidPassword(password: String): Boolean {
         val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
         return password.matches(passwordRegex.toRegex())
+    }
+
+    //check if hourly rate is a number and is more than 1 and less than 150
+    private fun isValidHourlyRate(hourlyRate: String): Boolean {
+        if (hourlyRate.isEmpty()) {
+            return false
+        }
+        try {
+            val rate = hourlyRate.toDouble()
+            return rate > 1 && rate < 150
+        }
+        catch (e: NumberFormatException) {
+            return false
+        }
     }
 
 }

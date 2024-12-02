@@ -36,33 +36,13 @@ class UserRegisterActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val confirmPasswordEditText = findViewById<EditText>(R.id.confirmPasswordEditText)
-        val dobEditButton = findViewById<Button>(R.id.dobEditText)
+        val dobEditText = findViewById<EditText>(R.id.dobEditText)
         val weightEditText = findViewById<EditText>(R.id.weightEditText)
         val heightEditText = findViewById<EditText>(R.id.heightEditText)
         val errorTextView = findViewById<TextView>(R.id.errorTextView)
         val registerButton = findViewById<Button>(R.id.registerButton)
+        val bioEditText = findViewById<EditText>(R.id.bioEditText)
 
-
-        //Date picker dialog box open for dobEditButton onClickListener
-        dobEditButton.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            val year = calendar.get(Calendar.YEAR)
-            val month = calendar.get(Calendar.MONTH)
-            val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-            val datePickerDialog = DatePickerDialog(
-                this,
-                { _, year, month, dayOfMonth ->
-                    // Update the dobEditButton text with the selected date
-                    val selectedDate = "$dayOfMonth/${month + 1}/$year"
-                    dobEditButton.text = selectedDate
-                },
-                year,
-                month,
-                day
-            )
-            datePickerDialog.show()
-        }
 
 
         // On Click Listener for Register Button
@@ -93,6 +73,21 @@ class UserRegisterActivity : AppCompatActivity() {
                 errorTextView.visibility = View.VISIBLE
                 return@setOnClickListener
             }
+            if (!isValidDOB(dobEditText.text.toString())) {
+                errorTextView.text = "Invalid Date of Birth Format."
+                errorTextView.visibility = View.VISIBLE
+                return@setOnClickListener
+            }
+            if (!isValidHeight(heightEditText.text.toString())) {
+                errorTextView.text = "Height must be a number between 50cm and 272cm."
+                errorTextView.visibility = View.VISIBLE
+                return@setOnClickListener
+            }
+            if (!isValidWeight(weightEditText.text.toString())) {
+                errorTextView.text = "Weight must be a number between 30kg and 250kg."
+                errorTextView.visibility = View.VISIBLE
+                return@setOnClickListener
+            }
 
             // Check email uniqueness (asynchronous operation)
             lifecycleScope.launch {
@@ -113,9 +108,9 @@ class UserRegisterActivity : AppCompatActivity() {
                     lastName = lastNameEditText.text.toString(),
                     email = emailEditText.text.toString(),
                     password = hashedPassword, // Store hashed password
-                    dob = dobEditButton.text.toString(),
+                    dob = dobEditText.text.toString(),
                     weight = weightEditText.text.toString().toDouble(),
-                    bio="",
+                    bio=bioEditText.text.toString(),
                     height = heightEditText.text.toString().toDouble(),
                     profilePicture = profileImageUri?.toString() ?: "",
                     isSubscribed = false // Default value
@@ -144,6 +139,40 @@ class UserRegisterActivity : AppCompatActivity() {
     private fun isValidPassword(password: String): Boolean {
         val passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
         return password.matches(passwordRegex.toRegex())
+    }
+
+    private fun isValidDOB(dob: String): Boolean {
+        //check if format is mm/dd/yyyy
+        val dobRegex = "^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/(19|20)\\d{2}$"
+        return dob.matches(dobRegex.toRegex())
+
+    }
+    //valid height is number between 50cm to 272cm
+    private fun isValidHeight(height: String): Boolean {
+        if (height.isEmpty()) {
+            return false
+        }
+        try {
+            val h = height.toDouble()
+            return h > 50 && h < 272
+        }
+        catch (e: NumberFormatException) {
+            return false
+        }
+    }
+
+    //weight is number between 30kg to 250kg
+    private fun isValidWeight(weight: String): Boolean {
+        if (weight.isEmpty()) {
+            return false
+        }
+        try {
+            val w = weight.toDouble()
+            return w > 30 && w < 250
+        }
+        catch (e: NumberFormatException) {
+            return false
+        }
     }
 }
 

@@ -14,6 +14,9 @@ interface TrainerTraineeRelationDao {
     @Query("SELECT * FROM trainer_trainee_relation WHERE trainerId = :trainerId")
     suspend fun getTraineesForTrainer(trainerId: Int): List<TrainerTraineeRelation>
 
+    //get pais traners for users
+    @Query("SELECT * FROM trainer_trainee_relation WHERE traineeId = :traineeId")
+    suspend fun getTrainersForTrainee(traineeId: Int): List<TrainerTraineeRelation>
 
 
 }

@@ -165,6 +165,7 @@
             android:text="Hourly Rate" />
         <EditText
             android:lines="1"
+            android:inputType="numberDecimal"
             android:background="@drawable/rounded_corners"
             android:textColorHint="@color/hint_text_color"
             android:textColor="@color/text_color"
@@ -174,7 +175,7 @@
             android:layout_marginBottom="10dp"
             android:padding="8dp"
             android:hint="@string/hourly_rate_prompt"
-            android:inputType="numberDecimal" />
+             />
 
         <!-- Terms and Conditions and Register Button -->
         <TextView

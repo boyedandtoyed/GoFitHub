@@ -11,10 +11,19 @@ interface TrainerDao {
     suspend fun getTrainerByEmail(email: String): Trainer?
 
     @Query("SELECT * FROM trainer_info WHERE id = :id")
-    suspend fun getTrainerById(id: Int): Trainer?
+    suspend fun getTrainerById(id: Int): Trainer
+
+    //get all trainers that match the list of ids
+    @Query("SELECT * FROM trainer_info WHERE id IN (:trainerIds)")
+    suspend fun getTrainersByIds(trainerIds: List<Int>): List<Trainer>
+
 
     @Query("SELECT * FROM trainer_info")
     suspend fun getAllTrainers(): List<Trainer>
+
+    //get ALL TRAINERS EXCEPT SPECIFIED trainers list
+    @Query("SELECT * FROM trainer_info WHERE id NOT IN (:trainerIds)")
+    suspend fun getAllTrainersExcept(trainerIds: List<Int>): List<Trainer>
 
     @Query("SELECT COUNT(*) FROM trainer_info WHERE email = :email")
     suspend fun isEmailExists(email: String): Int
@@ -36,5 +45,15 @@ interface TrainerDao {
 
     @Query("SELECT * FROM trainer_info WHERE isAvailable = 1")
     suspend fun getAvailableTrainers(): List<Trainer>
+
+    @Query("SELECT * FROM trainer_info WHERE ratingOutofFive >= :minRating ORDER BY ratingOutofFive DESC")
+    suspend fun getTopRatedTrainers(minRating: Double): List<Trainer>
+
+    @Query("SELECT * FROM trainer_info WHERE specialty = :specialty")
+    suspend fun getTrainersBySpecialty(specialty: String): List<Trainer>
+
+    //get trainer ratings by trainerid
+    @Query("SELECT ratingOutofFive FROM trainer_info WHERE id = :trainerId")
+    suspend fun getTrainerRatings(trainerId: Int): Double
 
 }

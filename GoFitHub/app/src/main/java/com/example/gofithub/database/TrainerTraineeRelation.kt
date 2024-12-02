@@ -8,7 +8,6 @@ data class TrainerTraineeRelation(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val trainerId: Int,
     val traineeId: Int,
-    val isPaid: Boolean,
     val paymentDate: String? = null,
     val paymentAmount: Double? = null,
     val trainingName: String? = null

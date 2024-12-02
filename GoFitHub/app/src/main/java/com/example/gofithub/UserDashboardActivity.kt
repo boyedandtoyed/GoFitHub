@@ -47,6 +47,11 @@ class UserDashboardActivity : AppCompatActivity() {
             intent.putExtra("userId", id)
             startActivity(intent)
         }
+        trainingButton.setOnClickListener {
+            val intent = Intent(this@UserDashboardActivity, TrainersPage::class.java)
+            intent.putExtra("userId", id)
+            startActivity(intent)
+        }
 
         lifecycleScope.launch {
             try {
@@ -82,11 +87,7 @@ class UserDashboardActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
 
-                    trainingButton.setOnClickListener {
-                        val intent = Intent(this@UserDashboardActivity, TrainersPage::class.java)
-                        intent.putExtra("userId", id)
-                        startActivity(intent)
-                    }
+
                 } else {
                     helloTextView.text = "Unknown User"
                 }

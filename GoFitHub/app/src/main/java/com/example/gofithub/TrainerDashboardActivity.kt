@@ -62,14 +62,21 @@ class TrainerDashboardActivity : AppCompatActivity() {
                     }
 
                     createPlansButton.setOnClickListener {
+                        val intent = Intent(this@TrainerDashboardActivity, CreateWorkoutPlans::class.java)
+                        intent.putExtra("trainerId", id)
+                        startActivity(intent)
                         // Handle create plans button click
                         Toast.makeText(this@TrainerDashboardActivity, "Create plans button clicked", Toast.LENGTH_SHORT).show()
                     }
 
-                    checkRosterButton.setOnClickListener {
-                        // Handle check roster button click
-                        Toast.makeText(this@TrainerDashboardActivity, "Check roster button clicked", Toast.LENGTH_SHORT).show()
-                    }
+//                    checkRosterButton.setOnClickListener {
+//                        val intent = Intent(this@TrainerDashboardActivity, CheckRoster::class.java)
+//                        intent.putExtra("trainerId", id)
+//                        startActivity(intent)
+//                        // Handle check roster button click
+//
+//                        Toast.makeText(this@TrainerDashboardActivity, "Check roster button clicked", Toast.LENGTH_SHORT).show()
+//                    }
 
 
 

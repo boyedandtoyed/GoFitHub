@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-@Database(entities = [User::class, Trainer::class, UserActivity::class, Activity::class, Goals::class, TrainerReview::class, TrainerTraineeRelation::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Trainer::class, UserActivity::class, Activity::class, Goals::class, TrainerReview::class, TrainerTraineeRelation::class, CreateWorkout::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun trainerDao(): TrainerDao
@@ -31,6 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun goalsDao(): GoalsDao
     abstract fun trainerReviewDao(): TrainerReviewDao
     abstract fun trainerTraineeRelationDao(): TrainerTraineeRelationDao
+    abstract fun createWorkoutDao(): CreateWorkoutDao
 
     companion object {
         @Volatile

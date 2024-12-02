@@ -2,6 +2,7 @@ package com.example.gofithub
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -45,8 +46,8 @@ class TrainerPaymentPage : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_trainer_payment_page)
 
-        userId = intent.getIntExtra("user_id", -1)
-        trainerId = intent.getIntExtra("trainer_id", -1)
+        userId = intent.getIntExtra("userId", -1)
+        trainerId = intent.getIntExtra("trainerId", -1)
 
         paymentOptions = findViewById(R.id.payment_options)
         creditCardDetails = findViewById(R.id.credit_card_details)
@@ -56,11 +57,14 @@ class TrainerPaymentPage : AppCompatActivity() {
         securityCode = findViewById(R.id.security_code)
         expirationDate = findViewById(R.id.expiration_date)
         trainingName = findViewById(R.id.training_name_title)
-        trainerHourlyRate = intent.getDoubleExtra("hourly_rate", 0.0)
-        trainerName = intent.getStringExtra("trainer_name") ?: ""
+        trainerHourlyRate = intent.getDoubleExtra("hourlyRate", 0.0)
+        trainerName = intent.getStringExtra("trainerName") ?: ""
+        Log.d("TrainerPaymentPage---", "Trainer Name: $trainerName")
+        Log.d("TrainerPaymentPage---", "Trainer Hourly Rate: $trainerHourlyRate")
+
         trainerPaymentTitle = findViewById(R.id.trainer_payment_title)
         paymentAmount = findViewById(R.id.payment_amount)
-        paymentAmount.text = "Price: $trainerHourlyRate"
+        paymentAmount.text = "Price: $$trainerHourlyRate"
 
 
         // Disable subscribe button initially

@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.example.gofithub.R
 import android.text.TextUtils
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.example.gofithub.database.TrainerTraineeRelationDao
 
@@ -157,6 +158,7 @@ class TrainersPage : AppCompatActivity() {
                 intent.putExtra("userId", userId)
                 intent.putExtra("hourlyRate", trainer.hourlyRate)
                 intent.putExtra("trainerName", "${trainer.firstName} ${trainer.lastName}")
+
                 startActivity(intent)
             }
 

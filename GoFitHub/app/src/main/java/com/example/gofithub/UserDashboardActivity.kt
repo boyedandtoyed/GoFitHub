@@ -108,11 +108,11 @@ class UserDashboardActivity : AppCompatActivity() {
                 // Check if there's an activity that can handle this intent
                 startActivity(intent)  // Start the activity to open the URL
             }
-//            friendsButton.setOnClickListener {
-//                val intent = Intent(this@UserDashboardActivity, FriendsViewPage::class.java)
-//                intent.putExtra("userId", id)
-//                startActivity(intent)
-//            }
+            friendsButton.setOnClickListener {
+                val intent = Intent(this@UserDashboardActivity, Friends::class.java)
+                intent.putExtra("userId", id)
+                startActivity(intent)
+            }
         }
 
 

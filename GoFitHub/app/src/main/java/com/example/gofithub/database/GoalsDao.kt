@@ -34,4 +34,8 @@ interface GoalsDao {
     // Get top 5 users by calories burned (sum of caloriesTarget)
     @Query("SELECT userId, SUM(caloriesTarget) AS totalCalories FROM user_goals WHERE goalCompleted = 1 GROUP BY userId ORDER BY totalCalories DESC LIMIT 5")
     suspend fun getTopUsersByCaloriesBurned(): List<TopUser>
+
+    // Get trainees' progress: total goals completed and total calories burned for each trainee
+    @Query("SELECT userId, COUNT(CASE WHEN goalCompleted = 1 THEN 1 END) AS completedGoals, SUM(caloriesTarget) AS totalCalories FROM user_goals WHERE userId IN (SELECT userId FROM user_activities WHERE trainerId = :trainerId) GROUP BY userId")
+    suspend fun getTraineesProgress(trainerId: Int): List<TraineeProgress>
 }

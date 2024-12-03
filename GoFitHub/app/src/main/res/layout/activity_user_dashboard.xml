@@ -173,33 +173,18 @@
                 app:cornerRadius="0dp" />
 
             <Button
-                android:id="@+id/plansButton"
+                android:id="@+id/trainingLessonsButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/button_color"
-                android:text="Plans(Premium Plan)"
+                android:text="Training Lessons"
                 android:textColor="@android:color/white"
                 app:cornerRadius="0dp" />
         </TableRow>
 
     </TableLayout>
-
-
-    <Button
-        android:id="@+id/homeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/button_color"
-        android:text="Home"
-        android:textColor="@android:color/white"
-        app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 

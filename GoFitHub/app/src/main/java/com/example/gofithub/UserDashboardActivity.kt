@@ -31,7 +31,7 @@ class UserDashboardActivity : AppCompatActivity() {
         val activitiesButton = findViewById<Button>(R.id.activitiesButton)
         val friendsButton = findViewById<Button>(R.id.friendsButton)
         val trainingButton = findViewById<Button>(R.id.trainingButton)
-        val plansButton = findViewById<Button>(R.id.plansButton)
+        val trainingLessonsButton = findViewById<Button>(R.id.trainingLessonsButton)
         val recentPlanButton= findViewById<Button>(R.id.recent_plans)
         val recentPlansSection = findViewById<LinearLayout>(R.id.recentPlansSection)
         val recentGoalsText = findViewById<TextView>(R.id.recentGoalsText)
@@ -75,9 +75,22 @@ class UserDashboardActivity : AppCompatActivity() {
                                 )
                                 intent.putExtra("user_id", user.id)
                                 startActivity(intent)
+                                trainingLessonsButton.visibility = View.GONE
+
                             }
                         }
-                    }
+                            else {
+                                trainingLessonsButton.visibility = View.VISIBLE
+                                trainingLessonsButton.setOnClickListener {
+                                    val intent = Intent(this@UserDashboardActivity, ShowingPlans::class.java)
+                                    intent.putExtra("userId", id)
+                                    startActivity(intent)
+                                }
+
+                            }
+
+                        }
+
 
 
                     recentGoalsText.text = "Your most recent goals is to: ${goals?.goalText}"
@@ -113,6 +126,8 @@ class UserDashboardActivity : AppCompatActivity() {
                 intent.putExtra("userId", id)
                 startActivity(intent)
             }
+            
+            
         }
 
 

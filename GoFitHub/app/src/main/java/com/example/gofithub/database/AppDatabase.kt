@@ -57,11 +57,13 @@ abstract class AppDatabase : RoomDatabase() {
     ) : RoomDatabase.Callback() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
-            val dao = AppDatabase.getInstance(context).activitiesDao()
+            val activitiesDao = AppDatabase.getInstance(context).activitiesDao()
+
 
             // Insert predefined activities in a background thread
             CoroutineScope(Dispatchers.IO).launch {
-                populateDatabase(dao)
+                populateDatabase(activitiesDao)
+
             }
         }
 
@@ -75,5 +77,6 @@ abstract class AppDatabase : RoomDatabase() {
             dao.insertActivity(Activity(activityName = "Weightlifting", userId = -1))
             Log.d("AppDatabaseCallback---", "Predefined activities inserted")
         }
+
     }
 }

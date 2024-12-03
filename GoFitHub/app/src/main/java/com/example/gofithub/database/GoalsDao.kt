@@ -26,4 +26,12 @@ interface GoalsDao {
     //get last added goal from a userId
     @Query("SELECT * FROM user_goals WHERE userId = :userId ORDER BY id DESC LIMIT 1")
     suspend fun getLastAddedGoal(userId: Int): Goals?
+
+    // Get top 5 users by completed goals
+    @Query(" SELECT userId, COUNT(*) AS goalCount FROM user_goals WHERE goalCompleted = 1 GROUP BY userId ORDER BY goalCount DESC LIMIT 5")
+    suspend fun getTopUsersByCompletedGoals(): List<TopUser>
+
+    // Get top 5 users by calories burned (sum of caloriesTarget)
+    @Query("SELECT userId, SUM(caloriesTarget) AS totalCalories FROM user_goals WHERE goalCompleted = 1 GROUP BY userId ORDER BY totalCalories DESC LIMIT 5")
+    suspend fun getTopUsersByCaloriesBurned(): List<TopUser>
 }

@@ -8,7 +8,8 @@
     android:background="#FFFFFF"
     android:backgroundTint="@color/white"
     android:backgroundTintMode="screen"
-    tools:context=".UserDashboardActivity">
+    tools:context=".UserDashboardActivity"
+    android:padding="20dp">
 
     <!-- Top Header with User's Name and Profile Picture and subscribe button-->
 
@@ -178,7 +179,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/button_color"
-                android:text="Plans"
+                android:text="Plans(Premium Plan)"
                 android:textColor="@android:color/white"
                 app:cornerRadius="0dp" />
         </TableRow>
@@ -201,6 +202,5 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <!-- Footer Section with 5 Buttons -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

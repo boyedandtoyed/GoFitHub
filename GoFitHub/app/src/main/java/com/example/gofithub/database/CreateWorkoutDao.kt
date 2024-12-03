@@ -14,6 +14,9 @@ interface CreateWorkoutDao {
     @Query("SELECT * FROM create_workout_table WHERE trainerId = :trainerId")
     suspend fun getWorkoutsByTrainerId(trainerId: Int): List<CreateWorkout>
 
+    //get all videos
+    @Query("SELECT * FROM create_workout_table")
+    suspend fun getAllWorkouts(): List<CreateWorkout>
 
 
 }

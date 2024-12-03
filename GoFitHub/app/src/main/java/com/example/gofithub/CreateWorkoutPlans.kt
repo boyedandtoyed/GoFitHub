@@ -1,5 +1,6 @@
 package com.example.gofithub
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -49,8 +50,15 @@ class CreateWorkoutPlans : AppCompatActivity() {
     private fun saveLinkToDatabase(youtubeLink: String , trainerId: Int) {
         //add link to database
         lifecycleScope.launch {
+
             val workout = CreateWorkout(youtubeLink = youtubeLink, trainerId = trainerId)
             workoutDao?.insertWorkout(workout)
+            Toast.makeText(this@CreateWorkoutPlans, "Workout added to database", Toast.LENGTH_SHORT).show()
+            //intent to redirect to showing plans page
+            val intent = Intent(this@CreateWorkoutPlans, ShowingPlans::class.java)
+            intent.putExtra("trainerId", trainerId)
+            startActivity(intent)
+            finish()
         }
     }
 }
